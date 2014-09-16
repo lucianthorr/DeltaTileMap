@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface TileMapViewController : UIViewController
+@class TileOverlayView, TileOverlay;
+@interface TileMapViewController : UIViewController <MKMapViewDelegate>{
+    IBOutlet MKMapView *map;
+
+}
+@property TileOverlayView   *tileView;
+@property TileOverlay       *overlay;
+@property IBOutlet UISegmentedControl   *mapStyleControl;
+@property IBOutlet UISlider             *opacitySlider;
+@property IBOutlet UILabel              *backgroundLabel;
+
+-(IBAction)sliderChanged:(id)sender;
 
 @end

@@ -7,7 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@interface TileOverlay : NSObject
+@interface ImageTile : NSObject {
+    NSString *imagePath;
+    MKMapRect frame;
+}
+@property (nonatomic, readonly) MKMapRect frame;
+@property (nonatomic, readonly) NSString  *imagePath;
+
+@end
+
+
+@interface TileOverlay : NSObject <MKOverlay>{
+    NSString *tileBase;
+    MKMapRect boundingMapRect;
+    NSSet *tilePaths;
+}
+
+-(id)initWithTileDirectory:(NSString*)tileDirectory;
+
+-(NSArray*)tilesInMapRect:(MKMapRect)rect zoomScale:(MKZoomScale)scale;
 
 @end

@@ -12,7 +12,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    //Open connection to wrong-question/plates/plateindex.txt
+    //Read in available directories
+    self.directoryList = [self retrieveAvailablePlates];
     return YES;
 }
 							
@@ -41,6 +43,20 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(NSArray*)retrieveAvailablePlates{
+    NSError *error;
+    NSMutableArray *tempList = [[NSMutableArray alloc] init];
+    //Connect to json list of available plates
+    NSString *url =@"http://www.wrong-question.com/plates/plateindex.json";
+    NSURL *urlRequest = [NSURL URLWithString:url];
+    NSData *webData = [NSData dataWithContentsOfURL:urlRequest];
+    //parse json file into NSDictionary
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:webData options:NSJSONReadingMutableLeaves error:&error];
+    tempList = [dictionary objectForKey:@"contents"];
+    NSArray *finalList = [[NSArray alloc] initWithArray:tempList];
+    return finalList;
 }
 
 @end

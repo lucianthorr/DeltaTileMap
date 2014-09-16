@@ -8,6 +8,12 @@
 
 #import <MapKit/MapKit.h>
 
-@interface TileOverlayView : MKOverlayRenderer
+
+@interface TileOverlayView : MKOverlayRenderer {
+}
+
+@property (nonatomic, assign) CGFloat tileAlpha;
+
+-(void)redrawWithAlpha:(float)alpha;
 
 @end

@@ -7,20 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B6B3FD819C7395200EDAB5D /* MapSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */; };
 		1B94EB4119C3849A00BA8489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4019C3849A00BA8489 /* Foundation.framework */; };
 		1B94EB4319C3849A00BA8489 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4219C3849A00BA8489 /* CoreGraphics.framework */; };
 		1B94EB4519C3849A00BA8489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4419C3849A00BA8489 /* UIKit.framework */; };
-		1B94EB4B19C3849A00BA8489 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB4919C3849A00BA8489 /* InfoPlist.strings */; };
 		1B94EB4D19C3849A00BA8489 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB4C19C3849A00BA8489 /* main.m */; };
 		1B94EB5119C3849A00BA8489 /* MapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB5019C3849A00BA8489 /* MapAppDelegate.m */; };
-		1B94EB5419C3849A00BA8489 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5219C3849A00BA8489 /* Main.storyboard */; };
-		1B94EB5719C3849A00BA8489 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB5619C3849A00BA8489 /* MapViewController.m */; };
-		1B94EB5919C3849A00BA8489 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5819C3849A00BA8489 /* Images.xcassets */; };
 		1B94EB6019C3849A00BA8489 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB5F19C3849A00BA8489 /* XCTest.framework */; };
 		1B94EB6119C3849A00BA8489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4019C3849A00BA8489 /* Foundation.framework */; };
 		1B94EB6219C3849A00BA8489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4419C3849A00BA8489 /* UIKit.framework */; };
 		1B94EB6A19C3849A00BA8489 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB6819C3849A00BA8489 /* InfoPlist.strings */; };
 		1B94EB6C19C3849A00BA8489 /* DeltaMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB6B19C3849A00BA8489 /* DeltaMapTests.m */; };
+		1B94EB7719C384FB00BA8489 /* TileMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB7619C384FB00BA8489 /* TileMapViewController.m */; };
+		1B94EB7919C385E100BA8489 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB7819C385E100BA8489 /* MapKit.framework */; };
+		1B94EB7B19C385E800BA8489 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB7A19C385E800BA8489 /* CoreLocation.framework */; };
+		1B94EB7E19C386A100BA8489 /* TileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB7D19C386A100BA8489 /* TileOverlay.m */; };
+		1B94EB8119C386DA00BA8489 /* TileOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB8019C386DA00BA8489 /* TileOverlayView.m */; };
+		1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5219C3849A00BA8489 /* Main.storyboard */; };
+		1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5819C3849A00BA8489 /* Images.xcassets */; };
+		1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB4919C3849A00BA8489 /* InfoPlist.strings */; };
+		1BFFA9DD19C3A38C00ABE5D5 /* plate22_s01 in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFA9DC19C3A38C00ABE5D5 /* plate22_s01 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B6B3FD619C7395200EDAB5D /* MapSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectViewController.h; sourceTree = "<group>"; };
+		1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSelectViewController.m; sourceTree = "<group>"; };
 		1B94EB3D19C3849A00BA8489 /* DeltaMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltaMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B94EB4019C3849A00BA8489 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B94EB4219C3849A00BA8489 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,14 +53,21 @@
 		1B94EB4F19C3849A00BA8489 /* MapAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapAppDelegate.h; sourceTree = "<group>"; };
 		1B94EB5019C3849A00BA8489 /* MapAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAppDelegate.m; sourceTree = "<group>"; };
 		1B94EB5319C3849A00BA8489 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1B94EB5519C3849A00BA8489 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		1B94EB5619C3849A00BA8489 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		1B94EB5819C3849A00BA8489 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1B94EB5E19C3849A00BA8489 /* DeltaMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeltaMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B94EB5F19C3849A00BA8489 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1B94EB6719C3849A00BA8489 /* DeltaMapTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DeltaMapTests-Info.plist"; sourceTree = "<group>"; };
 		1B94EB6919C3849A00BA8489 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B94EB6B19C3849A00BA8489 /* DeltaMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeltaMapTests.m; sourceTree = "<group>"; };
+		1B94EB7519C384FB00BA8489 /* TileMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapViewController.h; sourceTree = "<group>"; };
+		1B94EB7619C384FB00BA8489 /* TileMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapViewController.m; sourceTree = "<group>"; };
+		1B94EB7819C385E100BA8489 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1B94EB7A19C385E800BA8489 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1B94EB7C19C386A100BA8489 /* TileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileOverlay.h; sourceTree = "<group>"; };
+		1B94EB7D19C386A100BA8489 /* TileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileOverlay.m; sourceTree = "<group>"; };
+		1B94EB7F19C386DA00BA8489 /* TileOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileOverlayView.h; sourceTree = "<group>"; };
+		1B94EB8019C386DA00BA8489 /* TileOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileOverlayView.m; sourceTree = "<group>"; };
+		1BFFA9DC19C3A38C00ABE5D5 /* plate22_s01 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = plate22_s01; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B94EB7B19C385E800BA8489 /* CoreLocation.framework in Frameworks */,
+				1B94EB7919C385E100BA8489 /* MapKit.framework in Frameworks */,
 				1B94EB4319C3849A00BA8489 /* CoreGraphics.framework in Frameworks */,
 				1B94EB4519C3849A00BA8489 /* UIKit.framework in Frameworks */,
 				1B94EB4119C3849A00BA8489 /* Foundation.framework in Frameworks */,
@@ -82,6 +99,7 @@
 		1B94EB3419C3849900BA8489 = {
 			isa = PBXGroup;
 			children = (
+				1BFFA9DC19C3A38C00ABE5D5 /* plate22_s01 */,
 				1B94EB4619C3849A00BA8489 /* DeltaMap */,
 				1B94EB6519C3849A00BA8489 /* DeltaMapTests */,
 				1B94EB3F19C3849A00BA8489 /* Frameworks */,
@@ -101,6 +119,8 @@
 		1B94EB3F19C3849A00BA8489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B94EB7A19C385E800BA8489 /* CoreLocation.framework */,
+				1B94EB7819C385E100BA8489 /* MapKit.framework */,
 				1B94EB4019C3849A00BA8489 /* Foundation.framework */,
 				1B94EB4219C3849A00BA8489 /* CoreGraphics.framework */,
 				1B94EB4419C3849A00BA8489 /* UIKit.framework */,
@@ -112,11 +132,17 @@
 		1B94EB4619C3849A00BA8489 /* DeltaMap */ = {
 			isa = PBXGroup;
 			children = (
+				1B94EB5219C3849A00BA8489 /* Main.storyboard */,
 				1B94EB4F19C3849A00BA8489 /* MapAppDelegate.h */,
 				1B94EB5019C3849A00BA8489 /* MapAppDelegate.m */,
-				1B94EB5219C3849A00BA8489 /* Main.storyboard */,
-				1B94EB5519C3849A00BA8489 /* MapViewController.h */,
-				1B94EB5619C3849A00BA8489 /* MapViewController.m */,
+				1B94EB7519C384FB00BA8489 /* TileMapViewController.h */,
+				1B94EB7619C384FB00BA8489 /* TileMapViewController.m */,
+				1B6B3FD619C7395200EDAB5D /* MapSelectViewController.h */,
+				1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */,
+				1B94EB7C19C386A100BA8489 /* TileOverlay.h */,
+				1B94EB7D19C386A100BA8489 /* TileOverlay.m */,
+				1B94EB7F19C386DA00BA8489 /* TileOverlayView.h */,
+				1B94EB8019C386DA00BA8489 /* TileOverlayView.m */,
 				1B94EB5819C3849A00BA8489 /* Images.xcassets */,
 				1B94EB4719C3849A00BA8489 /* Supporting Files */,
 			);
@@ -161,7 +187,7 @@
 			buildPhases = (
 				1B94EB3919C3849A00BA8489 /* Sources */,
 				1B94EB3A19C3849A00BA8489 /* Frameworks */,
-				1B94EB3B19C3849A00BA8489 /* Resources */,
+				1B940D6619C39F8200BA8489 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -225,13 +251,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1B94EB3B19C3849A00BA8489 /* Resources */ = {
+		1B940D6619C39F8200BA8489 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B94EB5919C3849A00BA8489 /* Images.xcassets in Resources */,
-				1B94EB4B19C3849A00BA8489 /* InfoPlist.strings in Resources */,
-				1B94EB5419C3849A00BA8489 /* Main.storyboard in Resources */,
+				1BFFA9DD19C3A38C00ABE5D5 /* plate22_s01 in Resources */,
+				1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */,
+				1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */,
+				1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B94EB5719C3849A00BA8489 /* MapViewController.m in Sources */,
+				1B94EB7E19C386A100BA8489 /* TileOverlay.m in Sources */,
+				1B6B3FD819C7395200EDAB5D /* MapSelectViewController.m in Sources */,
+				1B94EB8119C386DA00BA8489 /* TileOverlayView.m in Sources */,
+				1B94EB7719C384FB00BA8489 /* TileMapViewController.m in Sources */,
 				1B94EB4D19C3849A00BA8489 /* main.m in Sources */,
 				1B94EB5119C3849A00BA8489 /* MapAppDelegate.m in Sources */,
 			);
@@ -457,6 +487,7 @@
 				1B94EB7119C3849A00BA8489 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B94EB7219C3849A00BA8489 /* Build configuration list for PBXNativeTarget "DeltaMapTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +496,7 @@
 				1B94EB7419C3849A00BA8489 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
