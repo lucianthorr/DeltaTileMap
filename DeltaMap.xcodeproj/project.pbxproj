@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1B6B3FD819C7395200EDAB5D /* MapSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */; };
+		1B6B40B819CB4AFF00EDAB5D /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B40B619CB4AFF00EDAB5D /* SSZipArchive.m */; };
+		1B6B40BB19CB4B3B00EDAB5D /* NSFileManager+Tar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B40BA19CB4B3B00EDAB5D /* NSFileManager+Tar.m */; };
+		1B6B40BE19CB4B8100EDAB5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6B40BD19CB4B8100EDAB5D /* libz.dylib */; };
+		1B6B40C919CB4CDC00EDAB5D /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B40C119CB4CDC00EDAB5D /* ioapi.c */; };
+		1B6B40CA19CB4CDC00EDAB5D /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B40C319CB4CDC00EDAB5D /* mztools.c */; };
+		1B6B40CB19CB4CDC00EDAB5D /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B40C519CB4CDC00EDAB5D /* unzip.c */; };
+		1B6B40CC19CB4CDC00EDAB5D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B40C719CB4CDC00EDAB5D /* zip.c */; };
 		1B94EB4119C3849A00BA8489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4019C3849A00BA8489 /* Foundation.framework */; };
 		1B94EB4319C3849A00BA8489 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4219C3849A00BA8489 /* CoreGraphics.framework */; };
 		1B94EB4519C3849A00BA8489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4419C3849A00BA8489 /* UIKit.framework */; };
@@ -42,6 +49,20 @@
 /* Begin PBXFileReference section */
 		1B6B3FD619C7395200EDAB5D /* MapSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectViewController.h; sourceTree = "<group>"; };
 		1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSelectViewController.m; sourceTree = "<group>"; };
+		1B6B40B519CB4AFF00EDAB5D /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = ZipArchiveLibrary/SSZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
+		1B6B40B619CB4AFF00EDAB5D /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = ZipArchiveLibrary/SSZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
+		1B6B40B919CB4B3B00EDAB5D /* NSFileManager+Tar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+Tar.h"; path = "Untar-Library/NSFileManager+Tar.h"; sourceTree = "<group>"; };
+		1B6B40BA19CB4B3B00EDAB5D /* NSFileManager+Tar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+Tar.m"; path = "Untar-Library/NSFileManager+Tar.m"; sourceTree = "<group>"; };
+		1B6B40BD19CB4B8100EDAB5D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1B6B40C019CB4CDC00EDAB5D /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		1B6B40C119CB4CDC00EDAB5D /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		1B6B40C219CB4CDC00EDAB5D /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		1B6B40C319CB4CDC00EDAB5D /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		1B6B40C419CB4CDC00EDAB5D /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		1B6B40C519CB4CDC00EDAB5D /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		1B6B40C619CB4CDC00EDAB5D /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		1B6B40C719CB4CDC00EDAB5D /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		1B6B40C819CB4CDC00EDAB5D /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		1B94EB3D19C3849A00BA8489 /* DeltaMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltaMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B94EB4019C3849A00BA8489 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B94EB4219C3849A00BA8489 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6B40BE19CB4B8100EDAB5D /* libz.dylib in Frameworks */,
 				1B94EB7B19C385E800BA8489 /* CoreLocation.framework in Frameworks */,
 				1B94EB7919C385E100BA8489 /* MapKit.framework in Frameworks */,
 				1B94EB4319C3849A00BA8489 /* CoreGraphics.framework in Frameworks */,
@@ -96,10 +118,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B6B40BC19CB4B4A00EDAB5D /* Zip/Tar */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B40BF19CB4CDC00EDAB5D /* minizip */,
+				1B6B40B919CB4B3B00EDAB5D /* NSFileManager+Tar.h */,
+				1B6B40BA19CB4B3B00EDAB5D /* NSFileManager+Tar.m */,
+				1B6B40B519CB4AFF00EDAB5D /* SSZipArchive.h */,
+				1B6B40B619CB4AFF00EDAB5D /* SSZipArchive.m */,
+			);
+			name = Zip/Tar;
+			sourceTree = "<group>";
+		};
+		1B6B40BF19CB4CDC00EDAB5D /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B40C019CB4CDC00EDAB5D /* crypt.h */,
+				1B6B40C119CB4CDC00EDAB5D /* ioapi.c */,
+				1B6B40C219CB4CDC00EDAB5D /* ioapi.h */,
+				1B6B40C319CB4CDC00EDAB5D /* mztools.c */,
+				1B6B40C419CB4CDC00EDAB5D /* mztools.h */,
+				1B6B40C519CB4CDC00EDAB5D /* unzip.c */,
+				1B6B40C619CB4CDC00EDAB5D /* unzip.h */,
+				1B6B40C719CB4CDC00EDAB5D /* zip.c */,
+				1B6B40C819CB4CDC00EDAB5D /* zip.h */,
+			);
+			name = minizip;
+			path = ZipArchiveLibrary/SSZipArchive/minizip;
+			sourceTree = "<group>";
+		};
 		1B94EB3419C3849900BA8489 = {
 			isa = PBXGroup;
 			children = (
 				1BFFA9DC19C3A38C00ABE5D5 /* plate22_s01 */,
+				1B6B40BC19CB4B4A00EDAB5D /* Zip/Tar */,
 				1B94EB4619C3849A00BA8489 /* DeltaMap */,
 				1B94EB6519C3849A00BA8489 /* DeltaMapTests */,
 				1B94EB3F19C3849A00BA8489 /* Frameworks */,
@@ -119,6 +171,7 @@
 		1B94EB3F19C3849A00BA8489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B6B40BD19CB4B8100EDAB5D /* libz.dylib */,
 				1B94EB7A19C385E800BA8489 /* CoreLocation.framework */,
 				1B94EB7819C385E100BA8489 /* MapKit.framework */,
 				1B94EB4019C3849A00BA8489 /* Foundation.framework */,
@@ -278,10 +331,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B94EB7E19C386A100BA8489 /* TileOverlay.m in Sources */,
+				1B6B40CB19CB4CDC00EDAB5D /* unzip.c in Sources */,
 				1B6B3FD819C7395200EDAB5D /* MapSelectViewController.m in Sources */,
 				1B94EB8119C386DA00BA8489 /* TileOverlayView.m in Sources */,
 				1B94EB7719C384FB00BA8489 /* TileMapViewController.m in Sources */,
+				1B6B40CA19CB4CDC00EDAB5D /* mztools.c in Sources */,
+				1B6B40BB19CB4B3B00EDAB5D /* NSFileManager+Tar.m in Sources */,
 				1B94EB4D19C3849A00BA8489 /* main.m in Sources */,
+				1B6B40C919CB4CDC00EDAB5D /* ioapi.c in Sources */,
+				1B6B40CC19CB4CDC00EDAB5D /* zip.c in Sources */,
+				1B6B40B819CB4AFF00EDAB5D /* SSZipArchive.m in Sources */,
 				1B94EB5119C3849A00BA8489 /* MapAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,6 +18,7 @@ Shortterm:
 I would like to add a second page with a UITableview of Plates for the user to choose from.
 Allow the mapView to handle multiple TileOverlays, reflecting the user's choices
 Add more plates from the rectified set
+Landscape mode removes all UIObjects except for UISlider, giving the user more screen space.
 
 Longterm:
 Georeference more of Harold Fisk's maps found at http://lmvmapping.erdc.usace.army.mil/

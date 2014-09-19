@@ -56,12 +56,34 @@
 }
              
 -(void)downloadSelection:(NSString*)selectedPlate{
+    NSError *error;
     NSString *baseURL = @"http://www.wrong-question.com/plates/";
-    NSString *plateURL = [NSString stringWithFormat:@"%@%@/googlemaps.html",baseURL,selectedPlate];
+    NSString *plateURL = [NSString stringWithFormat:@"%@%@.tar.zip",baseURL,selectedPlate];
     NSLog(@"plate URL = %@", plateURL);
-    //NSURL *urlRequest = [NSURL URLWithString:plateURL];
-    //NSData *webData = [NSData dataWithContentsOfURL:urlRequest];
+    NSURL *urlRequest = [NSURL URLWithString:plateURL];
+    NSData *webData = [NSData dataWithContentsOfURL:urlRequest];
+    NSString *documentDirectory =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                    NSUserDomainMask, YES) objectAtIndex:0];
+    NSLog(@"Save in %@", documentDirectory);
+    NSString *zipFilename = [NSString stringWithFormat:@"%@/%@.tar.zip",documentDirectory,selectedPlate];
+    NSLog(@"Save as %@", zipFilename);
+    if([webData writeToFile:zipFilename atomically:YES]){
+        NSLog(@"File Saved.");
+    }else{
+        NSLog(@"Problem Saving.");
+    }
+    NSString *tarFilename =[zipFilename stringByReplacingOccurrencesOfString:@".zip" withString:@""];
+    NSLog(@"Unzip as %@", tarFilename);
+    if([SSZipArchive unzipFileAtPath:zipFilename toDestination:documentDirectory]){
+        NSLog(@"Unzipped.");
+    }else{
+        NSLog(@"Problem Unzipping.");
+    }
+    NSData *tarData = [NSData dataWithContentsOfFile:tarFilename];
+    [[NSFileManager defaultManager] createFilesAndDirectoriesAtPath:documentDirectory withTarData:tarData error:&error];
+    [self updateList];
 }
+
 #pragma mark - UITableview
 
 -(void)updateList{
@@ -73,8 +95,13 @@
     NSDirectoryEnumerator *e = [fileman enumeratorAtPath:paths[0]];
     self.toBeDownloaded = [[NSMutableArray alloc] init];
     NSArray *alreadyDownloaded = [e allObjects];
+    NSLog(@"Update List");
+    for(int i = 0; i<[alreadyDownloaded count]; i++){
+        NSLog(@"Already Downloaded = %@", [alreadyDownloaded objectAtIndex:i]);
+    }
     for(int i = 0; i<[self.directoryList count]; i++){
         [self.toBeDownloaded addObject:@"*"];
+        NSLog(@"In Directory List: %@", [self.directoryList objectAtIndex:i]);
         if([alreadyDownloaded containsObject:[self.directoryList objectAtIndex:i]]){
             [self.toBeDownloaded replaceObjectAtIndex:i withObject:@""];
         }

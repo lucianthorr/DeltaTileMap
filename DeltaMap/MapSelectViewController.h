@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MapAppDelegate.h"
+#import "NSFileManager+Tar.h"
+#import "SSZipArchive.h"
 
 @interface MapSelectViewController : UIViewController
 <UITableViewDataSource, UITableViewDelegate>

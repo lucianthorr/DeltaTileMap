@@ -29,7 +29,7 @@
     
     // Initialize the TileOverlay with tiles in the application's bundle's resource directory.
     // Any valid tiled image directory structure in there will do.
-    NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"plate22_1"];
+    NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"plate22_s01"];
     NSLog(@"Tile Directory = %@\n\n", tileDirectory);
     self.overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
     [map addOverlay:self.overlay];
