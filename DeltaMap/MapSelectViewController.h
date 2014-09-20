@@ -15,11 +15,12 @@
 <UITableViewDataSource, UITableViewDelegate>
 
 
-@property (nonatomic, strong)   NSArray     *directoryList;
-@property (nonatomic, strong)   NSMutableArray  *toBeDownloaded;
-@property (nonatomic, strong)   IBOutlet UITableView *tableView;
+@property (nonatomic, strong)   NSArray                 *directoryList;
+//@property (nonatomic, strong)   NSMutableArray          *downloadState; // contains * for not downloaded, "" for downloaded and
+                                                                        // " - downloading" if currently downloading
+@property (nonatomic, strong)   IBOutlet UITableView    *tableView;
 
 -(IBAction)downloadPressed:(id)sender;
-
+-(IBAction)backPressed:(id)sender;
 
 @end

@@ -33,7 +33,7 @@
 		1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5219C3849A00BA8489 /* Main.storyboard */; };
 		1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5819C3849A00BA8489 /* Images.xcassets */; };
 		1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB4919C3849A00BA8489 /* InfoPlist.strings */; };
-		1BFFA9DD19C3A38C00ABE5D5 /* plate22_s01 in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFA9DC19C3A38C00ABE5D5 /* plate22_s01 */; };
+		1BFFA9DD19C3A38C00ABE5D5 /* Plate22.01 in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFA9DC19C3A38C00ABE5D5 /* Plate22.01 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +88,7 @@
 		1B94EB7D19C386A100BA8489 /* TileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileOverlay.m; sourceTree = "<group>"; };
 		1B94EB7F19C386DA00BA8489 /* TileOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileOverlayView.h; sourceTree = "<group>"; };
 		1B94EB8019C386DA00BA8489 /* TileOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileOverlayView.m; sourceTree = "<group>"; };
-		1BFFA9DC19C3A38C00ABE5D5 /* plate22_s01 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = plate22_s01; sourceTree = "<group>"; };
+		1BFFA9DC19C3A38C00ABE5D5 /* Plate22.01 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Plate22.01; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 		1B94EB3419C3849900BA8489 = {
 			isa = PBXGroup;
 			children = (
-				1BFFA9DC19C3A38C00ABE5D5 /* plate22_s01 */,
+				1BFFA9DC19C3A38C00ABE5D5 /* Plate22.01 */,
 				1B6B40BC19CB4B4A00EDAB5D /* Zip/Tar */,
 				1B94EB4619C3849A00BA8489 /* DeltaMap */,
 				1B94EB6519C3849A00BA8489 /* DeltaMapTests */,
@@ -308,7 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BFFA9DD19C3A38C00ABE5D5 /* plate22_s01 in Resources */,
+				1BFFA9DD19C3A38C00ABE5D5 /* Plate22.01 in Resources */,
 				1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */,
 				1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */,
 				1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */,

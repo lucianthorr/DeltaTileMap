@@ -115,6 +115,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backPressed:" destination="Hj3-jP-zBr" eventType="touchUpInside" id="Yyp-Rv-tJK"/>
                                     <segue destination="kb9-KD-fBD" kind="modal" modalTransitionStyle="flipHorizontal" id="S08-xR-80X"/>
                                 </connections>
                             </button>

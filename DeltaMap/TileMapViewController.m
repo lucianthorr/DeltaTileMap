@@ -14,37 +14,61 @@
 
 @implementation TileMapViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
-
+        self.tileViews = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    MapAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.selectedPlates = [[NSArray alloc] initWithArray:[appDelegate selectedDirectories]];
     
     // Initialize the TileOverlay with tiles in the application's bundle's resource directory.
     // Any valid tiled image directory structure in there will do.
-    NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"plate22_s01"];
-    NSLog(@"Tile Directory = %@\n\n", tileDirectory);
-    self.overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
-    [map addOverlay:self.overlay];
+    self.overlays = [[NSMutableArray alloc] init];
+    if([self.selectedPlates count] == 0){
+        NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
+        NSLog(@"Tile Directory = %@\n\n", tileDirectory);
+        TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
+        [self.overlays addObject:overlay];
+        [map addOverlay:overlay];
+    }else{
+        for(int i = 0; i< [self.selectedPlates count]; i++){
+            if([[self.selectedPlates objectAtIndex:i] isEqualToString:@"Plate22.01"]){
+                NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
+                NSLog(@"Tile Directory = %@\n\n", tileDirectory);
+                TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
+                [self.overlays addObject:overlay];
+                [map addOverlay:overlay];
+            }else{
+                NSMutableString *directory = [NSMutableString stringWithFormat:@"%@/",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0]];
+                [directory appendString:[self.selectedPlates objectAtIndex:i]];
+                TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:directory];
+                [self.overlays addObject:overlay];
+                [map addOverlay:overlay];
+            }
+        }
+    }
     
     // zoom in by a factor of two from the rect that contains the bounds
     // because MapKit always backs up to get to an integral zoom level so
     // we need to go in one so that we don't end up backed out beyond the
     // range of the TileOverlay.
-    MKMapRect visibleRect = [map mapRectThatFits:self.overlay.boundingMapRect];
-    visibleRect.size.width /= 2;
-    visibleRect.size.height /= 2;
-    visibleRect.origin.x += visibleRect.size.width / 2;
-    visibleRect.origin.y += visibleRect.size.height / 2;
-    map.visibleMapRect = visibleRect;
-    
+    if(self.overlays > 0){
+        TileOverlay *firstOverlay = [self.overlays objectAtIndex:0];
+        MKMapRect visibleRect = [map mapRectThatFits:firstOverlay.boundingMapRect];
+        visibleRect.size.width /= 2;
+        visibleRect.size.height /= 2;
+        visibleRect.origin.x += visibleRect.size.width / 2;
+        visibleRect.origin.y += visibleRect.size.height / 2;
+        map.visibleMapRect = visibleRect;
+    }
     //Set General View Settings
     self.view.backgroundColor = [UIColor whiteColor];
     //Start the Map in Hybrid Mode
@@ -52,15 +76,18 @@
     map.mapType = MKMapTypeHybrid;
     
 }
-- (MKOverlayRenderer *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay {
-    self.tileView = [[TileOverlayView alloc] initWithOverlay:overlay];
-    return self.tileView;
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay {
+    TileOverlayView *tileView = [[TileOverlayView alloc] initWithOverlay:overlay];
+    [self.tileViews addObject:tileView];
+    return tileView;
 }
 #pragma mark - UISlider
 
 -(void)sliderChanged:(UISlider*)sender{
-    [self.tileView setTileAlpha:sender.value];
-    [self.tileView setNeedsDisplay];
+    for(int i = 0; i< [self.tileViews count]; i++){
+        [[self.tileViews objectAtIndex:i] setTileAlpha:sender.value];
+        [[self.tileViews objectAtIndex:i ] setNeedsDisplay];
+    }
     [self.backgroundLabel setAlpha:sender.value];
     [self.backgroundLabel setNeedsDisplay];
 }
