@@ -1,5 +1,5 @@
 //
-//  TileOverlayView.h
+//  TileOverlayRenderer.h
 //  DeltaMap
 //
 //  Created by Jason Aylward on 9/12/14.
@@ -9,11 +9,12 @@
 #import <MapKit/MapKit.h>
 
 
-@interface TileOverlayView : MKOverlayRenderer {
+@interface TileOverlayRenderer : MKTileOverlayRenderer {
 }
 
 @property (nonatomic, assign) CGFloat tileAlpha;
 
 -(void)redrawWithAlpha:(float)alpha;
+
 
 @end

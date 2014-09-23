@@ -19,11 +19,12 @@
 @end
 
 
-@interface TileOverlay : NSObject <MKOverlay>{
+@interface TileOverlay : MKTileOverlay {
     NSString *tileBase;
     MKMapRect boundingMapRect;
     NSSet *tilePaths;
 }
+@property (nonatomic, strong) NSMutableArray    *tiles;
 
 -(id)initWithTileDirectory:(NSString*)tileDirectory;
 

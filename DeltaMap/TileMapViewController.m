@@ -8,18 +8,18 @@
 
 #import "TileMapViewController.h"
 #import "TileOverlay.h"
-#import "TileOverlayView.h"
+#import "TileOverlayRenderer.h"
 
 
 
 @implementation TileMapViewController
+@synthesize map;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
-        self.tileViews = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -28,15 +28,14 @@
     [super viewDidLoad];
     MapAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.selectedPlates = [[NSArray alloc] initWithArray:[appDelegate selectedDirectories]];
-    
+
     // Initialize the TileOverlay with tiles in the application's bundle's resource directory.
     // Any valid tiled image directory structure in there will do.
-    self.overlays = [[NSMutableArray alloc] init];
+    //self.overlays = [[NSMutableArray alloc] init];
     if([self.selectedPlates count] == 0){
         NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
         NSLog(@"Tile Directory = %@\n\n", tileDirectory);
         TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
-        [self.overlays addObject:overlay];
         [map addOverlay:overlay];
     }else{
         for(int i = 0; i< [self.selectedPlates count]; i++){
@@ -44,24 +43,22 @@
                 NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
                 NSLog(@"Tile Directory = %@\n\n", tileDirectory);
                 TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
-                [self.overlays addObject:overlay];
                 [map addOverlay:overlay];
             }else{
                 NSMutableString *directory = [NSMutableString stringWithFormat:@"%@/",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0]];
                 [directory appendString:[self.selectedPlates objectAtIndex:i]];
                 TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:directory];
-                [self.overlays addObject:overlay];
                 [map addOverlay:overlay];
             }
         }
     }
-    
     // zoom in by a factor of two from the rect that contains the bounds
     // because MapKit always backs up to get to an integral zoom level so
     // we need to go in one so that we don't end up backed out beyond the
     // range of the TileOverlay.
-    if(self.overlays > 0){
-        TileOverlay *firstOverlay = [self.overlays objectAtIndex:0];
+    //if(self.overlays > 0){
+    if([[map overlays] count] > 0){
+        TileOverlay *firstOverlay = [[map overlays] objectAtIndex:0];
         MKMapRect visibleRect = [map mapRectThatFits:firstOverlay.boundingMapRect];
         visibleRect.size.width /= 2;
         visibleRect.size.height /= 2;
@@ -76,17 +73,22 @@
     map.mapType = MKMapTypeHybrid;
     
 }
+
+//This is only called once each time the mapView is loaded.
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay {
-    TileOverlayView *tileView = [[TileOverlayView alloc] initWithOverlay:overlay];
-    [self.tileViews addObject:tileView];
-    return tileView;
+    self.tileRenderer = [[TileOverlayRenderer alloc] initWithTileOverlay:overlay];
+    return self.tileRenderer;
 }
+
 #pragma mark - UISlider
 
 -(void)sliderChanged:(UISlider*)sender{
-    for(int i = 0; i< [self.tileViews count]; i++){
-        [[self.tileViews objectAtIndex:i] setTileAlpha:sender.value];
-        [[self.tileViews objectAtIndex:i ] setNeedsDisplay];
+    for(int i = 0; i< [[map overlays] count]; i++){
+        //[tileViews count] earlier
+        TileOverlay *overlay = [[map overlays] objectAtIndex:i];
+        TileOverlayRenderer *renderer = (TileOverlayRenderer*)[map rendererForOverlay:overlay];
+        [renderer redrawWithAlpha:sender.value];
+        [renderer setNeedsDisplay];
     }
     [self.backgroundLabel setAlpha:sender.value];
     [self.backgroundLabel setNeedsDisplay];

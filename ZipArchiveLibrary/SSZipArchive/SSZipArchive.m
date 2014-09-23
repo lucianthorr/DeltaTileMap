@@ -82,7 +82,7 @@
 		[delegate zipArchiveWillUnzipArchiveAtPath:path zipInfo:globalInfo];
 	}
 	if ([delegate respondsToSelector:@selector(zipArchiveProgressEvent:total:)]) {
-		[delegate zipArchiveProgressEvent:currentPosition total:(NSInteger)fileSize];
+		[delegate zipArchiveProgressEvent:(NSInteger)currentPosition total:(NSInteger)fileSize];
 	}
     
 	NSInteger currentFileNumber = 0;

@@ -10,16 +10,14 @@
 #import <MapKit/MapKit.h>
 #import "MapAppDelegate.h"
 
-@class TileOverlayView, TileOverlay;
+@class TileOverlayRenderer, TileOverlay;
 @interface TileMapViewController : UIViewController <MKMapViewDelegate>{
-    IBOutlet MKMapView *map;
+
 
 }
-//@property TileOverlayView   *tileView;
-//@property TileOverlay       *overlay;
+@property (nonatomic, strong) IBOutlet MKMapView *map;
+@property (nonatomic, strong) TileOverlayRenderer *tileRenderer;
 @property (nonatomic, strong) NSArray           *selectedPlates;
-@property (nonatomic, strong) NSMutableArray    *overlays;
-@property (nonatomic, strong) NSMutableArray    *tileViews;
 
 @property IBOutlet UISegmentedControl   *mapStyleControl;
 @property IBOutlet UISlider             *opacitySlider;

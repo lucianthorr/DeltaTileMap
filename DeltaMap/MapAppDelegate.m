@@ -57,12 +57,16 @@
     NSString *url =@"http://www.wrong-question.com/plates/plateindex.json";
     NSURL *urlRequest = [NSURL URLWithString:url];
     NSData *webData = [NSData dataWithContentsOfURL:urlRequest];
-    //parse json file into NSDictionary
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:webData options:NSJSONReadingMutableLeaves error:&error];
-    NSMutableArray *tempList = [[NSMutableArray alloc] initWithArray:[dictionary objectForKey:@"contents"]];
-    //[tempList insertObject:@"plate22_s01" atIndex:0];
-    NSArray *finalList = [[NSArray alloc] initWithArray:tempList];
-    return finalList;
+    if(webData != nil){
+        //parse json file into NSDictionary
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:webData options:NSJSONReadingMutableLeaves error:&error];
+        NSMutableArray *tempList = [[NSMutableArray alloc] initWithArray:[dictionary objectForKey:@"contents"]];
+        //[tempList insertObject:@"plate22_s01" atIndex:0];
+        NSArray *finalList = [[NSArray alloc] initWithArray:tempList];
+        return finalList;
+    }else{
+        return [[NSArray alloc] initWithObjects:@"Plate22.01", nil];
+    }
 }
 
 @end
