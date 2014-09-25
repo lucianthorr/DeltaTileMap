@@ -75,31 +75,14 @@
     NSURL *url = [NSURL URLWithString:address];
     
     NSData *webData = [NSData dataWithContentsOfURL:url];
-    NSString *webString = [[NSString alloc] initWithData:webData encoding:NSUTF8StringEncoding];
-    
     if(webData != nil){
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:webData options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"Web Count = %i", [[dictionary allKeys] count]);
-        for(int i = 0; i< [[dictionary allKeys] count]; i++){
-            NSLog(@"%i = %@", i, [[dictionary allKeys] objectAtIndex:i]);
+        self.jSONDictionary = [NSJSONSerialization JSONObjectWithData:webData options:NSJSONReadingMutableLeaves error:&error];
+        NSLog(@"Web Count = %i", [[self.jSONDictionary allKeys] count]);
+        for(int i = 0; i< [[self.jSONDictionary allKeys] count]; i++){
+            NSLog(@"%i = %@", i, [[self.jSONDictionary allKeys] objectAtIndex:i]);
         }
-    }
-    
-    NSString *contents = [[NSBundle mainBundle] pathForResource:@"plateContents" ofType:@"json"];
-    NSData *fileData = [NSData dataWithContentsOfFile:contents];
-    if(fileData != nil){
-        NSDictionary *filedict = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"File Count = %i", [[filedict allKeys] count]);
-        for(int i = 0; i< [[filedict allKeys] count]; i++){
-            NSLog(@"%i = %@", i, [[filedict allKeys] objectAtIndex:i]);
-        }
-    }
-    NSString *fileString = [[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
-    if([fileString isEqualToString:webString]){
-        NSLog(@"The Same?!?!");
     }else{
-        NSLog(@"Not Equal");
-        NSLog(@"\n\nWeb Size = %i\nFile Size = %i\n\n", [webString length], [fileString length]);
+        self.jSONDictionary = [[NSDictionary alloc] init];
     }
 }
 

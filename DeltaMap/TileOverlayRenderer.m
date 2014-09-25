@@ -43,27 +43,96 @@
     // returned NO in that case).
     NSArray *tilesInRect = [tileOverlay tilesInMapRect:mapRect zoomScale:zoomScale];
     CGContextSetAlpha(context, tileAlpha);
-    for (ImageTile *tile in tilesInRect) {
-        // For each image tile, draw it in its corresponding MKMapRect frame
-        CGRect rect = [self rectForMapRect:tile.frame];
-        UIImage *image = [[UIImage alloc] initWithContentsOfFile:tile.imagePath];
-        /*Mask White to Transparent */
-        image = [self replaceColor: [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] inImage:image withTolerance:1.0];
-        
-        /* Resume drawing Rect */
-        CGContextSaveGState(context);
-        CGContextTranslateCTM(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
-        CGContextScaleCTM(context, 1/zoomScale, 1/zoomScale);
-        CGContextTranslateCTM(context, 0, image.size.height);
-        CGContextScaleCTM(context, 1, -1);
-        CGContextDrawImage(context, CGRectMake(0, 0, image.size.width, image.size.height), [image CGImage]);
-        CGContextRestoreGState(context);
+    //synchronized is used to protect the *tiles in tilesInRect from being written to and read at the same time
+    @synchronized(self){
+        for (ImageTile *tile in tilesInRect) {
+            // For each image tile, draw it in its corresponding MKMapRect frame
+            CGRect rect = [self rectForMapRect:tile.frame];
+            NSString *documentDirectory =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                            NSUserDomainMask, YES) objectAtIndex:0];
+            UIImage *image = [[UIImage alloc] initWithContentsOfFile:tile.imagePath];
+            if(image == nil){
+                NSString *savedImagePath = [NSString stringWithFormat:@"%@/%@", documentDirectory, tile.imagePath];
+                image = [[UIImage alloc] initWithContentsOfFile:savedImagePath];
+            }
+            if(image == nil){
+                NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.wrong-question.com/plates/%@", tile.imagePath]];
+                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                image = [[UIImage alloc] initWithData:imageData];
+                [self writeToFile:imageData atPath:tile.imagePath];
+            }
+            /*Mask White to Transparent */
+            image = [self replaceColor: [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] inImage:image withTolerance:1.0];
+            
+            /* Resume drawing Rect */
+            CGContextSaveGState(context);
+            CGContextTranslateCTM(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
+            CGContextScaleCTM(context, 1/zoomScale, 1/zoomScale);
+            CGContextTranslateCTM(context, 0, image.size.height);
+            CGContextScaleCTM(context, 1, -1);
+            CGContextDrawImage(context, CGRectMake(0, 0, image.size.width, image.size.height), [image CGImage]);
+            CGContextRestoreGState(context);
+        }
     }
 }
+-(void)writeToFile:(NSData*)data atPath:(NSString*)filePath{
+    NSError *error;
+    //NSData *data = [args objectAtIndex:0];
+    //NSString *filePath = [args objectAtIndex:1];
+    NSArray *folders = [[filePath stringByDeletingPathExtension] pathComponents];
+    NSString *documentDirectory =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                        NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *plateFolder = [documentDirectory stringByAppendingString:
+                            [NSString stringWithFormat:@"/%@", [folders objectAtIndex:0]]];
+    NSString *xFolder = [plateFolder stringByAppendingString:
+                         [NSString stringWithFormat:@"/%@", [folders objectAtIndex:1]]];
+    NSString *yFolder = [xFolder stringByAppendingString:
+                         [NSString stringWithFormat:@"/%@",[folders objectAtIndex:2]]];
+    NSString *zFile = [yFolder stringByAppendingString:
+                       [NSString stringWithFormat:@"/%@.png",[folders objectAtIndex:3]]];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:plateFolder]){
+        if([[NSFileManager defaultManager] createDirectoryAtPath:plateFolder withIntermediateDirectories:NO attributes:nil error:&error]){
+            NSLog(@"Success writing plateFolder\nplateFolder = %@", plateFolder);
+        }else{
+            NSLog(@"Problem writing plateFolder");
+        }
+    }else{
+        NSLog(@"plateFolder Exists");
+    }
+    if(![[NSFileManager defaultManager] fileExistsAtPath:xFolder]){
+        if([[NSFileManager defaultManager] createDirectoryAtPath:xFolder withIntermediateDirectories:NO attributes:nil error:&error]){
+            NSLog(@"Success writing xFolder\nxFolder = %@", xFolder);
+        }else{
+            NSLog(@"Problem writing xFolder");
+        }
+    }else{
+        NSLog(@"xFolder Exists");
+    }
+    if(![[NSFileManager defaultManager] fileExistsAtPath:yFolder]){
+        if([[NSFileManager defaultManager] createDirectoryAtPath:yFolder withIntermediateDirectories:NO attributes:nil error:&error]){
+            NSLog(@"Success writing yFolder\nyFolder = %@", yFolder);
+        }else{
+            NSLog(@"Problem writing yFolder");
+        }
+    }else{
+        NSLog(@"yFolder Exists");
+    }
+    if(![[NSFileManager defaultManager] fileExistsAtPath:zFile]){
+        if([[NSFileManager defaultManager] createFileAtPath:zFile contents:data attributes:nil]){
+            NSLog(@"Write file\nFile = %@", zFile);
+        }else{
+            NSLog(@"Problem writing file");
+        }
+    }else{
+        NSLog(@"File Exists");
+    }
+    
+    
+}
+
 -(void)redrawWithAlpha:(float)alpha{
     tileAlpha = alpha;
 }
-
 
 #pragma mark - CGMasking Methods
 //Thanks to PKCLsoft at http://stackoverflow.com/questions/633722/how-to-make-one-color-transparent-on-a-uiimage

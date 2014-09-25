@@ -17,4 +17,6 @@
 @property (strong, nonatomic) NSMutableArray        *downloadState;
 @property (strong, nonatomic) NSMutableArray        *selectedDirectories;
 
+@property (strong, nonatomic) NSDictionary          *jSONDictionary;
+
 @end

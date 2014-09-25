@@ -45,9 +45,10 @@
                 TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
                 [map addOverlay:overlay];
             }else{
-                NSMutableString *directory = [NSMutableString stringWithFormat:@"%@/",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0]];
-                [directory appendString:[self.selectedPlates objectAtIndex:i]];
-                TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:directory];
+                //NSMutableString *directory = [NSMutableString stringWithFormat:@"%@/",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0]];
+                //[directory appendString:[self.selectedPlates objectAtIndex:i]];
+                //TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:directory];
+                TileOverlay *overlay = [[TileOverlay alloc] initWithTileURL:[self.selectedPlates objectAtIndex:i]];
                 [map addOverlay:overlay];
             }
         }

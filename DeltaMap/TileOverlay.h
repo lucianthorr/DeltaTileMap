@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "MapAppDelegate.h"
 
 @interface ImageTile : NSObject {
     NSString *imagePath;
@@ -27,6 +28,7 @@
 @property (nonatomic, strong) NSMutableArray    *tiles;
 
 -(id)initWithTileDirectory:(NSString*)tileDirectory;
+-(id)initWithTileURL:(NSString*)tileAddress;
 
 -(NSArray*)tilesInMapRect:(MKMapRect)rect zoomScale:(MKZoomScale)scale;
 
