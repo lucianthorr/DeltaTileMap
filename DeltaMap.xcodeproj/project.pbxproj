@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B5BF09219D25A4100C10020 /* plateContents.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B5BF09119D25A4100C10020 /* plateContents.json */; };
 		1B6B3FD819C7395200EDAB5D /* MapSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */; };
 		1B6B40B819CB4AFF00EDAB5D /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B40B619CB4AFF00EDAB5D /* SSZipArchive.m */; };
 		1B6B40BB19CB4B3B00EDAB5D /* NSFileManager+Tar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B40BA19CB4B3B00EDAB5D /* NSFileManager+Tar.m */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B5BF09119D25A4100C10020 /* plateContents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = plateContents.json; sourceTree = "<group>"; };
 		1B6B3FD619C7395200EDAB5D /* MapSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectViewController.h; sourceTree = "<group>"; };
 		1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSelectViewController.m; sourceTree = "<group>"; };
 		1B6B40B519CB4AFF00EDAB5D /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = ZipArchiveLibrary/SSZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		1B94EB3419C3849900BA8489 = {
 			isa = PBXGroup;
 			children = (
+				1B5BF09119D25A4100C10020 /* plateContents.json */,
 				1BFFA9DC19C3A38C00ABE5D5 /* Plate22.01 */,
 				1B6B40BC19CB4B4A00EDAB5D /* Zip/Tar */,
 				1B94EB4619C3849A00BA8489 /* DeltaMap */,
@@ -312,6 +315,7 @@
 				1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */,
 				1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */,
 				1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */,
+				1B5BF09219D25A4100C10020 /* plateContents.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
