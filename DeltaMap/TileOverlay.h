@@ -28,7 +28,7 @@
 @property (nonatomic, strong) NSMutableArray    *tiles;
 
 -(id)initWithTileDirectory:(NSString*)tileDirectory;
--(id)initWithTileURL:(NSString*)tileAddress;
+-(id)initWithTilePath:(NSString*)tileAddress;
 
 -(NSArray*)tilesInMapRect:(MKMapRect)rect zoomScale:(MKZoomScale)scale;
 

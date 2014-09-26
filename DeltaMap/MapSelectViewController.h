@@ -16,7 +16,6 @@
 
 
 @property (nonatomic, strong)   NSArray                 *jSONDirectory;
-
 @property (nonatomic, strong)   IBOutlet UITableView    *tableView;
 
 -(IBAction)backPressed:(id)sender;

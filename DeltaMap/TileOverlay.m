@@ -103,7 +103,7 @@ static NSInteger zoomScaleToZoomLevel(MKZoomScale scale) {
     }
     return self;
 }
--(id)initWithTileURL:(NSString*)tileAddress{
+-(id)initWithTilePath:(NSString*)tileAddress{
     if(self = [super init]){
         tileBase = [[NSString alloc] initWithString:tileAddress];
         MapAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];

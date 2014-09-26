@@ -42,7 +42,9 @@
     // list may be 1 or more images (but not 0 because canDrawMapRect would have
     // returned NO in that case).
     NSArray *tilesInRect = [tileOverlay tilesInMapRect:mapRect zoomScale:zoomScale];
-    CGContextSetAlpha(context, tileAlpha);
+    @synchronized(self){
+        CGContextSetAlpha(context, tileAlpha);
+    }
     //synchronized is used to protect the *tiles in tilesInRect from being written to and read at the same time
     @synchronized(self){
         for (ImageTile *tile in tilesInRect) {

@@ -14,8 +14,6 @@
 {
     //Open connection to wrong-question/plates/plateindex.txt
     //Read in available directories
-    self.directoryList = [self retrieveAvailablePlates];
-    self.downloadState = [[NSMutableArray alloc] init];
     self.selectedDirectories = [[NSMutableArray alloc] init];
     [self checkNewJSON];
     return YES;
@@ -46,28 +44,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-/*! Downloads the json file of plates available
- \n Creates an Array of plate names
- \n Inserts plate22_s01 at the beginning because it is the original plate in NSBundle resources
- \n return finalized list
-*/
--(NSArray*)retrieveAvailablePlates{
-    NSError *error;
-    //Connect to json list of available plates
-    NSString *url =@"http://www.wrong-question.com/plates/plateindex.json";
-    NSURL *urlRequest = [NSURL URLWithString:url];
-    NSData *webData = [NSData dataWithContentsOfURL:urlRequest];
-    if(webData != nil){
-        //parse json file into NSDictionary
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:webData options:NSJSONReadingMutableLeaves error:&error];
-        NSMutableArray *tempList = [[NSMutableArray alloc] initWithArray:[dictionary objectForKey:@"contents"]];
-        //[tempList insertObject:@"plate22_s01" atIndex:0];
-        NSArray *finalList = [[NSArray alloc] initWithArray:tempList];
-        return finalList;
-    }else{
-        return [[NSArray alloc] initWithObjects:@"Plate22.01", nil];
-    }
 }
 -(void)checkNewJSON{
     NSString *address =@"http://www.wrong-question.com/plates/plateContents.json";

@@ -13,10 +13,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) TileMapViewController *tileMapViewController;
-@property (strong, nonatomic) NSArray               *directoryList;
-@property (strong, nonatomic) NSMutableArray        *downloadState;
 @property (strong, nonatomic) NSMutableArray        *selectedDirectories;
-
 @property (strong, nonatomic) NSDictionary          *jSONDictionary;
 
 @end

@@ -33,24 +33,23 @@
     // Any valid tiled image directory structure in there will do.
     //self.overlays = [[NSMutableArray alloc] init];
     if([self.selectedPlates count] == 0){
-        NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
-        NSLog(@"Tile Directory = %@\n\n", tileDirectory);
-        TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
+        //NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
+        //NSLog(@"Tile Directory = %@\n\n", tileDirectory);
+        //TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
+        TileOverlay *overlay = [[TileOverlay alloc] initWithTilePath:@"Plate22.02"];
         [map addOverlay:overlay];
+        
+        
     }else{
         for(int i = 0; i< [self.selectedPlates count]; i++){
-            if([[self.selectedPlates objectAtIndex:i] isEqualToString:@"Plate22.01"]){
-                NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
-                NSLog(@"Tile Directory = %@\n\n", tileDirectory);
-                TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
+            //if([[self.selectedPlates objectAtIndex:i] isEqualToString:@"Plate22.01"]){
+            //    NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
+            //    TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
+            //    [map addOverlay:overlay];
+            //}else{
+                TileOverlay *overlay = [[TileOverlay alloc] initWithTilePath:[self.selectedPlates objectAtIndex:i]];
                 [map addOverlay:overlay];
-            }else{
-                //NSMutableString *directory = [NSMutableString stringWithFormat:@"%@/",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0]];
-                //[directory appendString:[self.selectedPlates objectAtIndex:i]];
-                //TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:directory];
-                TileOverlay *overlay = [[TileOverlay alloc] initWithTileURL:[self.selectedPlates objectAtIndex:i]];
-                [map addOverlay:overlay];
-            }
+            //}
         }
     }
     // zoom in by a factor of two from the rect that contains the bounds

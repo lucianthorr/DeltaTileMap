@@ -14,20 +14,17 @@
 
 @implementation MapSelectViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
-        
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     MapAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.jSONDirectory = [appDelegate.jSONDictionary allKeys];
+    self.jSONDirectory = [[appDelegate.jSONDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 
@@ -43,8 +40,6 @@
     NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
     NSMutableArray *selections = [[NSMutableArray alloc] init];
     for(int i = 0; i< [selectedRows count]; i++){
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[selectedRows objectAtIndex:i]];
-        NSLog(@"Selected = %@", cell.textLabel.text);
         [selections addObject:[self.tableView cellForRowAtIndexPath:[selectedRows objectAtIndex:i]].textLabel.text];
     }
     [appDelegate setSelectedDirectories:selections];
