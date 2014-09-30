@@ -57,7 +57,12 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@",[self.jSONDirectory objectAtIndex:indexPath.row]];
     return cell;
 }
-
+//Creates a Maximum of 4 maps allowed to be selected at once.
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if([[tableView indexPathsForSelectedRows] count] > 4){
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
 /*
 #pragma mark - Navigation
 

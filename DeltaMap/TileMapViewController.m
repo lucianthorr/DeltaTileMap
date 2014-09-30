@@ -28,6 +28,15 @@
     [super viewDidLoad];
     MapAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.selectedPlates = [[NSArray alloc] initWithArray:[appDelegate selectedDirectories]];
+    if([appDelegate firstView]){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                            message:@"This app requires significant downloads.\nBe sure to connect to WIFI."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        [appDelegate setFirstView:FALSE];
+    }
 
     // Initialize the TileOverlay with tiles in the application's bundle's resource directory.
     // Any valid tiled image directory structure in there will do.
@@ -36,7 +45,7 @@
         //NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
         //NSLog(@"Tile Directory = %@\n\n", tileDirectory);
         //TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
-        TileOverlay *overlay = [[TileOverlay alloc] initWithTilePath:@"Plate22.02"];
+        TileOverlay *overlay = [[TileOverlay alloc] initWithTilePath:@"Plate22.01"];
         [map addOverlay:overlay];
         
         
@@ -77,6 +86,7 @@
 //This is only called once each time the mapView is loaded.
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay {
     self.tileRenderer = [[TileOverlayRenderer alloc] initWithTileOverlay:overlay];
+    self.tileRenderer.viewController = self;
     return self.tileRenderer;
 }
 

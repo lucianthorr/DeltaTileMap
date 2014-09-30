@@ -12,7 +12,7 @@
 
 @class TileOverlayRenderer, TileOverlay;
 @interface TileMapViewController : UIViewController <MKMapViewDelegate>{
-
+    BOOL    firstView;
 
 }
 @property (nonatomic, strong) IBOutlet MKMapView *map;

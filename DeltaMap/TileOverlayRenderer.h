@@ -8,11 +8,13 @@
 
 #import <MapKit/MapKit.h>
 
-
+@class TileMapViewController;
 @interface TileOverlayRenderer : MKTileOverlayRenderer {
+    NSData *downloadedData;
 }
+@property (nonatomic, strong) TileMapViewController *viewController;
+@property (nonatomic, assign) CGFloat   tileAlpha;
 
-@property (nonatomic, assign) CGFloat tileAlpha;
 
 -(void)redrawWithAlpha:(float)alpha;
 

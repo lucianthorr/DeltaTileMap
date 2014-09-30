@@ -12,13 +12,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //Open connection to wrong-question/plates/plateindex.txt
-    //Read in available directories
     self.selectedDirectories = [[NSMutableArray alloc] init];
+    self.firstView = TRUE;
     [self checkNewJSON];
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -53,7 +52,7 @@
     NSData *webData = [NSData dataWithContentsOfURL:url];
     if(webData != nil){
         self.jSONDictionary = [NSJSONSerialization JSONObjectWithData:webData options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"Web Count = %i", [[self.jSONDictionary allKeys] count]);
+        NSLog(@"Web Count = %lu", (unsigned long)[[self.jSONDictionary allKeys] count]);
         for(int i = 0; i< [[self.jSONDictionary allKeys] count]; i++){
             NSLog(@"%i = %@", i, [[self.jSONDictionary allKeys] objectAtIndex:i]);
         }
@@ -61,5 +60,6 @@
         self.jSONDictionary = [[NSDictionary alloc] init];
     }
 }
+
 
 @end

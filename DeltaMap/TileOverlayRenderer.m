@@ -5,7 +5,7 @@
 //  Created by Jason Aylward on 9/12/14.
 //  Copyright (c) 2014 Jason Aylward. All rights reserved.
 //
-
+#import "TileMapViewController.h"
 #import "TileOverlayRenderer.h"
 #import "TileOverlay.h"
 
@@ -17,12 +17,7 @@
     }
     return self;
 }
--(id)initWithOverlay:(id<MKOverlay>)overlay AndAlpha:(float)alpha{
-    if(self = [super initWithOverlay:overlay]){
-        tileAlpha = (CGFloat)alpha;
-    }
-    return self;
-}
+
 
 
 -(BOOL)canDrawMapRect:(MKMapRect)mapRect zoomScale:(MKZoomScale)zoomScale{
@@ -59,12 +54,28 @@
             }
             if(image == nil){
                 NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.wrong-question.com/plates/%@", tile.imagePath]];
-                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-                image = [[UIImage alloc] initWithData:imageData];
-                [self writeToFile:imageData atPath:tile.imagePath];
+                UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+                spinner.color = [UIColor whiteColor];
+                [spinner setCenter:CGPointMake(160, 240)];
+                [self.viewController.view addSubview:spinner];
+                [spinner startAnimating];
+                //Downloads synchronously on separate thread using GCD
+                //UIActivityIndicator animates on the main thread during download
+                dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    downloadedData = [NSData dataWithContentsOfURL:imageURL];
+                    dispatch_async(dispatch_get_main_queue(),^{
+                        [spinner stopAnimating];
+                        [spinner removeFromSuperview];
+                    });
+                });
+                image = [[UIImage alloc] initWithData:downloadedData];
+                /*Mask White to Transparent */
+                image = [self replaceColor: [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] inImage:image withTolerance:1.0];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    [self writeToFile:UIImagePNGRepresentation(image) atPath:tile.imagePath];
+                });
+
             }
-            /*Mask White to Transparent */
-            image = [self replaceColor: [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] inImage:image withTolerance:1.0];
             
             /* Resume drawing Rect */
             CGContextSaveGState(context);
@@ -77,10 +88,9 @@
         }
     }
 }
+
 -(void)writeToFile:(NSData*)data atPath:(NSString*)filePath{
     NSError *error;
-    //NSData *data = [args objectAtIndex:0];
-    //NSString *filePath = [args objectAtIndex:1];
     NSArray *folders = [[filePath stringByDeletingPathExtension] pathComponents];
     NSString *documentDirectory =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                         NSUserDomainMask, YES) objectAtIndex:0];

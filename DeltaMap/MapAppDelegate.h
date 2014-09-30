@@ -15,5 +15,5 @@
 @property (strong, nonatomic) TileMapViewController *tileMapViewController;
 @property (strong, nonatomic) NSMutableArray        *selectedDirectories;
 @property (strong, nonatomic) NSDictionary          *jSONDictionary;
-
+@property BOOL  firstView;
 @end
