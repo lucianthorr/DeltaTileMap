@@ -4,7 +4,7 @@ DeltaMap Readme
 DESCRIPTION:
 
 
-Right now, DeltaMap is essentially the TileMap project from WWDC2010's presentation, Customizing Maps with Overlays.
+DeltaMap is based on the TileMap project from WWDC2010's presentation, Customizing Maps with Overlays.
 You can find the presentation at https://developer.apple.com/videos/wwdc/2010/
 And I found the referenced code athttps://github.com/klokantech/Apple-WWDC10-TileMap
 
@@ -14,15 +14,8 @@ I also rewrote the code, updating depreciated classes and methods and touched up
 =============================================================================
 GOALS:
 
-Shortterm:
-I would like to add a second page with a UITableview of Plates for the user to choose from.
-Allow the mapView to handle multiple TileOverlays, reflecting the user's choices
-Add more plates from the rectified set
-Landscape mode removes all UIObjects except for UISlider, giving the user more screen space.
-
-Longterm:
-Georeference more of Harold Fisk's maps found at http://lmvmapping.erdc.usace.army.mil/
-Include them in the the list of Tile Overlays
+Improve loading time
+Isolate what is causing occasional crashes
 
 =============================================================================
 REFERENCES:
