@@ -26,46 +26,40 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     MapAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.selectedPlates = [[NSArray alloc] initWithArray:[appDelegate selectedDirectories]];
     if([appDelegate firstView]){
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning"
                                                             message:@"This app requires significant downloads.\nBe sure to connect to WIFI."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
+                                                            delegate:self
+                                                            cancelButtonTitle:@"OK"
+                                                            otherButtonTitles:nil];
         [alertView show];
         [appDelegate setFirstView:FALSE];
     }
 
     // Initialize the TileOverlay with tiles in the application's bundle's resource directory.
     // Any valid tiled image directory structure in there will do.
-    //self.overlays = [[NSMutableArray alloc] init];
     if([self.selectedPlates count] == 0){
-        //NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
-        //NSLog(@"Tile Directory = %@\n\n", tileDirectory);
-        //TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
         TileOverlay *overlay = [[TileOverlay alloc] initWithTilePath:@"Plate22.01"];
-        [map addOverlay:overlay];
-        
+        if(overlay != nil){
+            [map addOverlay:overlay];
+        }
         
     }else{
         for(int i = 0; i< [self.selectedPlates count]; i++){
-            //if([[self.selectedPlates objectAtIndex:i] isEqualToString:@"Plate22.01"]){
-            //    NSString *tileDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Plate22.01"];
-            //    TileOverlay *overlay = [[TileOverlay alloc] initWithTileDirectory:tileDirectory];
-            //    [map addOverlay:overlay];
-            //}else{
-                TileOverlay *overlay = [[TileOverlay alloc] initWithTilePath:[self.selectedPlates objectAtIndex:i]];
+            TileOverlay *overlay = [[TileOverlay alloc] initWithTilePath:[self.selectedPlates objectAtIndex:i]];
+            if(overlay != nil){
                 [map addOverlay:overlay];
-            //}
+            }
         }
     }
     // zoom in by a factor of two from the rect that contains the bounds
     // because MapKit always backs up to get to an integral zoom level so
     // we need to go in one so that we don't end up backed out beyond the
     // range of the TileOverlay.
-    //if(self.overlays > 0){
     if([[map overlays] count] > 0){
         TileOverlay *firstOverlay = [[map overlays] objectAtIndex:0];
         MKMapRect visibleRect = [map mapRectThatFits:firstOverlay.boundingMapRect];
@@ -82,6 +76,19 @@
     map.mapType = MKMapTypeHybrid;
     
 }
+-(void)orientationChanged:(NSNotification*)notification{
+    
+    if([[UIDevice currentDevice] orientation] == UIDeviceOrientationPortrait){
+        self.backgroundLabel.hidden = NO;
+        self.mapStyleControl.hidden = NO;
+        self.mapSelectButton.hidden = NO;
+    }else if(([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeLeft) ||
+             ([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight)){
+        self.backgroundLabel.hidden = YES;
+        self.mapStyleControl.hidden = YES;
+        self.mapSelectButton.hidden = YES;
+    }
+}
 
 //This is only called once each time the mapView is loaded.
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay {
@@ -92,6 +99,17 @@
 
 #pragma mark - UISlider
 
+-(void)sliderWillBeChanged:(UISlider*)sender{
+    for(int i = 0; i<[[map overlays] count]; i++){
+        TileOverlay *overlay = [[map overlays] objectAtIndex:i];
+        TileOverlayRenderer *renderer = (TileOverlayRenderer*)[map rendererForOverlay:overlay];
+        if([renderer.spinner isAnimating]){
+            
+        }else{
+            
+        }
+    }
+}
 -(void)sliderChanged:(UISlider*)sender{
     for(int i = 0; i< [[map overlays] count]; i++){
         //[tileViews count] earlier

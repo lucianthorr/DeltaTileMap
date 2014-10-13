@@ -20,13 +20,24 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeltaMap/TileMapViewController.m"
-            timestampString = "433723321.12559"
+            timestampString = "434934790.414383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            condition = "malloc_error_break"
+            continueAfterRunningActions = "No"
+            symbolName = "Malloc Error"
+            moduleName = "">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

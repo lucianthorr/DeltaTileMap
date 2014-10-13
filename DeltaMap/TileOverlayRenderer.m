@@ -11,6 +11,7 @@
 
 @implementation TileOverlayRenderer
 @synthesize tileAlpha;
+
 -(id)initWithTileOverlay:(MKTileOverlay*)overlay{
     if(self = [super initWithTileOverlay:overlay]){
         tileAlpha = 0.5;
@@ -37,54 +38,62 @@
     // list may be 1 or more images (but not 0 because canDrawMapRect would have
     // returned NO in that case).
     NSArray *tilesInRect = [tileOverlay tilesInMapRect:mapRect zoomScale:zoomScale];
-    @synchronized(self){
-        CGContextSetAlpha(context, tileAlpha);
-    }
+    CGContextSetAlpha(context, tileAlpha);
+    
     //synchronized is used to protect the *tiles in tilesInRect from being written to and read at the same time
     @synchronized(self){
-        for (ImageTile *tile in tilesInRect) {
+        self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        self.spinner.color = [UIColor whiteColor];
+        [self.spinner setCenter:CGPointMake(160, 240)];
+        
+        
+        //for (ImageTile *tile in tilesInRect) {
+        for(int i = 0; i < [tilesInRect count]; i++){
+            ImageTile *tile = [tilesInRect objectAtIndex:i];
             // For each image tile, draw it in its corresponding MKMapRect frame
             CGRect rect = [self rectForMapRect:tile.frame];
             NSString *documentDirectory =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                             NSUserDomainMask, YES) objectAtIndex:0];
-            UIImage *image = [[UIImage alloc] initWithContentsOfFile:tile.imagePath];
-            if(image == nil){
-                NSString *savedImagePath = [NSString stringWithFormat:@"%@/%@", documentDirectory, tile.imagePath];
-                image = [[UIImage alloc] initWithContentsOfFile:savedImagePath];
-            }
-            if(image == nil){
-                NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.wrong-question.com/plates/%@", tile.imagePath]];
-                UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-                spinner.color = [UIColor whiteColor];
-                [spinner setCenter:CGPointMake(160, 240)];
-                [self.viewController.view addSubview:spinner];
-                [spinner startAnimating];
-                //Downloads synchronously on separate thread using GCD
-                //UIActivityIndicator animates on the main thread during download
-                dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    downloadedData = [NSData dataWithContentsOfURL:imageURL];
-                    dispatch_async(dispatch_get_main_queue(),^{
-                        [spinner stopAnimating];
-                        [spinner removeFromSuperview];
-                    });
-                });
-                image = [[UIImage alloc] initWithData:downloadedData];
-                /*Mask White to Transparent */
-                image = [self replaceColor: [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] inImage:image withTolerance:1.0];
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                UIImage *image = [[UIImage alloc] initWithContentsOfFile:tile.imagePath];
+                if(image == nil){
+                    NSString *savedImagePath = [NSString stringWithFormat:@"%@/%@", documentDirectory, tile.imagePath];
+                    image = [[UIImage alloc] initWithContentsOfFile:savedImagePath];
+                }
+                if(image == nil){
+                    NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.wrong-question.com/plates/%@", tile.imagePath]];
+                    
+                    if(![self.spinner isAnimating]){
+                        dispatch_async(dispatch_get_main_queue(),^{
+                            [self.viewController.view addSubview:self.spinner];
+                            [self.spinner startAnimating];
+                        });
+                    }
+                    //Downloads synchronously on separate thread using GCD
+                    //UIActivityIndicator animates on the main thread during download
+                    NSData *downloadedData = [NSData dataWithContentsOfURL:imageURL];
+                    image = [[UIImage alloc] initWithData:downloadedData];
+                    /*Mask White to Transparent */
+                    image = [self replaceColor: [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] inImage:image withTolerance:1.0];
                     [self writeToFile:UIImagePNGRepresentation(image) atPath:tile.imagePath];
-                });
-
-            }
+               
+                }
+                /* Resume drawing Rect */
+                CGContextSaveGState(context);
+                CGContextTranslateCTM(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
+                CGContextScaleCTM(context, 1/zoomScale, 1/zoomScale);
+                CGContextTranslateCTM(context, 0, image.size.height);
+                CGContextScaleCTM(context, 1, -1);
+                CGContextDrawImage(context, CGRectMake(0, 0, image.size.width, image.size.height), [image CGImage]);
+                CGContextRestoreGState(context);
+            });
             
-            /* Resume drawing Rect */
-            CGContextSaveGState(context);
-            CGContextTranslateCTM(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
-            CGContextScaleCTM(context, 1/zoomScale, 1/zoomScale);
-            CGContextTranslateCTM(context, 0, image.size.height);
-            CGContextScaleCTM(context, 1, -1);
-            CGContextDrawImage(context, CGRectMake(0, 0, image.size.width, image.size.height), [image CGImage]);
-            CGContextRestoreGState(context);
+        }
+        if([self.spinner isAnimating]){
+            dispatch_sync(dispatch_get_main_queue(),^{
+                [self.spinner stopAnimating];
+                [self.spinner removeFromSuperview];
+            });
         }
     }
 }
@@ -138,7 +147,6 @@
     }else{
         NSLog(@"File Exists");
     }
-    
     
 }
 

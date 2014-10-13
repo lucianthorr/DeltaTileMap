@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1B6B3FD819C7395200EDAB5D /* MapSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */; };
 		1B6B40BE19CB4B8100EDAB5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6B40BD19CB4B8100EDAB5D /* libz.dylib */; };
+		1B80FBDB19DC64E6009AF36C /* Delta Icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B80FBD619DC64E6009AF36C /* Delta Icon76.png */; };
+		1B80FBDC19DC64E6009AF36C /* Delta Icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B80FBD719DC64E6009AF36C /* Delta Icon120.png */; };
+		1B80FBDD19DC64E6009AF36C /* Delta Icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B80FBD819DC64E6009AF36C /* Delta Icon152.png */; };
+		1B80FBDE19DC64E6009AF36C /* Delta Icon180.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B80FBD919DC64E6009AF36C /* Delta Icon180.png */; };
+		1B80FBDF19DC64E6009AF36C /* Delta Icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B80FBDA19DC64E6009AF36C /* Delta Icon1024.png */; };
 		1B94EB4119C3849A00BA8489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4019C3849A00BA8489 /* Foundation.framework */; };
 		1B94EB4319C3849A00BA8489 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4219C3849A00BA8489 /* CoreGraphics.framework */; };
 		1B94EB4519C3849A00BA8489 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB4419C3849A00BA8489 /* UIKit.framework */; };
@@ -43,6 +48,11 @@
 		1B6B3FD619C7395200EDAB5D /* MapSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectViewController.h; sourceTree = "<group>"; };
 		1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSelectViewController.m; sourceTree = "<group>"; };
 		1B6B40BD19CB4B8100EDAB5D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1B80FBD619DC64E6009AF36C /* Delta Icon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon76.png"; path = "Delta Icons/Delta Icon76.png"; sourceTree = "<group>"; };
+		1B80FBD719DC64E6009AF36C /* Delta Icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon120.png"; path = "Delta Icons/Delta Icon120.png"; sourceTree = "<group>"; };
+		1B80FBD819DC64E6009AF36C /* Delta Icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon152.png"; path = "Delta Icons/Delta Icon152.png"; sourceTree = "<group>"; };
+		1B80FBD919DC64E6009AF36C /* Delta Icon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon180.png"; path = "Delta Icons/Delta Icon180.png"; sourceTree = "<group>"; };
+		1B80FBDA19DC64E6009AF36C /* Delta Icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon1024.png"; path = "Delta Icons/Delta Icon1024.png"; sourceTree = "<group>"; };
 		1B94EB3D19C3849A00BA8489 /* DeltaMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltaMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B94EB4019C3849A00BA8489 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B94EB4219C3849A00BA8489 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +107,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B80FBD519DC63AA009AF36C /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				1B80FBD619DC64E6009AF36C /* Delta Icon76.png */,
+				1B80FBD719DC64E6009AF36C /* Delta Icon120.png */,
+				1B80FBD819DC64E6009AF36C /* Delta Icon152.png */,
+				1B80FBD919DC64E6009AF36C /* Delta Icon180.png */,
+				1B80FBDA19DC64E6009AF36C /* Delta Icon1024.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		1B94EB3419C3849900BA8489 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +126,7 @@
 				1B94EB6519C3849A00BA8489 /* DeltaMapTests */,
 				1B94EB3F19C3849A00BA8489 /* Frameworks */,
 				1B94EB3E19C3849A00BA8489 /* Products */,
+				1B80FBD519DC63AA009AF36C /* Icons */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,8 +280,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */,
+				1B80FBDE19DC64E6009AF36C /* Delta Icon180.png in Resources */,
+				1B80FBDC19DC64E6009AF36C /* Delta Icon120.png in Resources */,
 				1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */,
+				1B80FBDD19DC64E6009AF36C /* Delta Icon152.png in Resources */,
 				1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */,
+				1B80FBDB19DC64E6009AF36C /* Delta Icon76.png in Resources */,
+				1B80FBDF19DC64E6009AF36C /* Delta Icon1024.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

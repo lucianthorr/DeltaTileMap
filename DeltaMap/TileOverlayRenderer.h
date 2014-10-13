@@ -10,11 +10,12 @@
 
 @class TileMapViewController;
 @interface TileOverlayRenderer : MKTileOverlayRenderer {
-    NSData *downloadedData;
+    CGFloat tileAlpha;
+    //NSData *downloadedData;
 }
 @property (nonatomic, strong) TileMapViewController *viewController;
 @property (nonatomic, assign) CGFloat   tileAlpha;
-
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
 
 -(void)redrawWithAlpha:(float)alpha;
 

@@ -19,6 +19,7 @@
 @property (nonatomic, strong) TileOverlayRenderer *tileRenderer;
 @property (nonatomic, strong) NSArray           *selectedPlates;
 
+@property IBOutlet UIButton             *mapSelectButton;
 @property IBOutlet UISegmentedControl   *mapStyleControl;
 @property IBOutlet UISlider             *opacitySlider;
 @property IBOutlet UILabel              *backgroundLabel;
