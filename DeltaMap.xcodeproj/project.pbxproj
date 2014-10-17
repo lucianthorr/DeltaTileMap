@@ -29,6 +29,10 @@
 		1B94EB7B19C385E800BA8489 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B94EB7A19C385E800BA8489 /* CoreLocation.framework */; };
 		1B94EB7E19C386A100BA8489 /* TileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB7D19C386A100BA8489 /* TileOverlay.m */; };
 		1B94EB8119C386DA00BA8489 /* TileOverlayRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB8019C386DA00BA8489 /* TileOverlayRenderer.m */; };
+		1BA5A21819ED9E4100904065 /* Delta Icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5A21619ED9E4100904065 /* Delta Icon58.png */; };
+		1BA5A21919ED9E4100904065 /* Delta Icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5A21719ED9E4100904065 /* Delta Icon80.png */; };
+		1BA5A21D19EDA0D600904065 /* launch1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5A21A19EDA0D600904065 /* launch1136.png */; };
+		1BA5A21E19EDA0D600904065 /* launch960.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5A21B19EDA0D600904065 /* launch960.png */; };
 		1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5219C3849A00BA8489 /* Main.storyboard */; };
 		1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5819C3849A00BA8489 /* Images.xcassets */; };
 		1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB4919C3849A00BA8489 /* InfoPlist.strings */; };
@@ -78,6 +82,10 @@
 		1B94EB7D19C386A100BA8489 /* TileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileOverlay.m; sourceTree = "<group>"; };
 		1B94EB7F19C386DA00BA8489 /* TileOverlayRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileOverlayRenderer.h; sourceTree = "<group>"; };
 		1B94EB8019C386DA00BA8489 /* TileOverlayRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileOverlayRenderer.m; sourceTree = "<group>"; };
+		1BA5A21619ED9E4100904065 /* Delta Icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon58.png"; path = "Delta Icons/Delta Icon58.png"; sourceTree = "<group>"; };
+		1BA5A21719ED9E4100904065 /* Delta Icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon80.png"; path = "Delta Icons/Delta Icon80.png"; sourceTree = "<group>"; };
+		1BA5A21A19EDA0D600904065 /* launch1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch1136.png; path = "Delta Icons/launch1136.png"; sourceTree = "<group>"; };
+		1BA5A21B19EDA0D600904065 /* launch960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch960.png; path = "Delta Icons/launch960.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +118,12 @@
 		1B80FBD519DC63AA009AF36C /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				1B80FBD619DC64E6009AF36C /* Delta Icon76.png */,
+				1BA5A21A19EDA0D600904065 /* launch1136.png */,
+				1BA5A21B19EDA0D600904065 /* launch960.png */,
+				1BA5A21619ED9E4100904065 /* Delta Icon58.png */,
+				1BA5A21719ED9E4100904065 /* Delta Icon80.png */,
 				1B80FBD719DC64E6009AF36C /* Delta Icon120.png */,
+				1B80FBD619DC64E6009AF36C /* Delta Icon76.png */,
 				1B80FBD819DC64E6009AF36C /* Delta Icon152.png */,
 				1B80FBD919DC64E6009AF36C /* Delta Icon180.png */,
 				1B80FBDA19DC64E6009AF36C /* Delta Icon1024.png */,
@@ -280,10 +292,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */,
+				1BA5A21D19EDA0D600904065 /* launch1136.png in Resources */,
+				1BA5A21E19EDA0D600904065 /* launch960.png in Resources */,
 				1B80FBDE19DC64E6009AF36C /* Delta Icon180.png in Resources */,
+				1BA5A21819ED9E4100904065 /* Delta Icon58.png in Resources */,
 				1B80FBDC19DC64E6009AF36C /* Delta Icon120.png in Resources */,
 				1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */,
 				1B80FBDD19DC64E6009AF36C /* Delta Icon152.png in Resources */,
+				1BA5A21919ED9E4100904065 /* Delta Icon80.png in Resources */,
 				1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */,
 				1B80FBDB19DC64E6009AF36C /* Delta Icon76.png in Resources */,
 				1B80FBDF19DC64E6009AF36C /* Delta Icon1024.png in Resources */,

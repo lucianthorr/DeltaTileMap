@@ -26,9 +26,9 @@
     NSArray *tilesInRect = [tileOverlay tilesInMapRect:mapRect zoomScale:zoomScale];
     return [tilesInRect count] > 0;
 }
--(void)setNeedsDisplay{
-    [super setNeedsDisplay];
-}
+//-(void)setNeedsDisplay{
+//    [super setNeedsDisplay];
+//}
 
 -(void)drawMapRect:(MKMapRect)mapRect
          zoomScale:(MKZoomScale)zoomScale
@@ -64,9 +64,10 @@
                     NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.wrong-question.com/plates/%@", tile.imagePath]];
                     
                     if(![self.spinner isAnimating]){
-                        dispatch_async(dispatch_get_main_queue(),^{
+                        dispatch_sync(dispatch_get_main_queue(),^{
                             [self.viewController.view addSubview:self.spinner];
                             [self.spinner startAnimating];
+                            self.viewController.opacitySlider.enabled = NO;
                         });
                     }
                     //Downloads synchronously on separate thread using GCD
@@ -91,11 +92,18 @@
         }
         if([self.spinner isAnimating]){
             dispatch_sync(dispatch_get_main_queue(),^{
+                self.viewController.opacitySlider.enabled = YES;
                 [self.spinner stopAnimating];
                 [self.spinner removeFromSuperview];
             });
         }
     }
+    //Just in case a previous method was interrupted, this ensures the spinner is removed and the slider is enabled.
+    dispatch_sync(dispatch_get_main_queue(),^{
+        self.viewController.opacitySlider.enabled = YES;
+        [self.spinner stopAnimating];
+        [self.spinner removeFromSuperview];
+    });
 }
 
 -(void)writeToFile:(NSData*)data atPath:(NSString*)filePath{
@@ -113,41 +121,40 @@
                        [NSString stringWithFormat:@"/%@.png",[folders objectAtIndex:3]]];
     if(![[NSFileManager defaultManager] fileExistsAtPath:plateFolder]){
         if([[NSFileManager defaultManager] createDirectoryAtPath:plateFolder withIntermediateDirectories:NO attributes:nil error:&error]){
-            NSLog(@"Success writing plateFolder\nplateFolder = %@", plateFolder);
+            //NSLog(@"Success writing plateFolder\nplateFolder = %@", plateFolder);
         }else{
-            NSLog(@"Problem writing plateFolder");
+            //NSLog(@"Problem writing plateFolder");
         }
     }else{
-        NSLog(@"plateFolder Exists");
+        //NSLog(@"plateFolder Exists");
     }
     if(![[NSFileManager defaultManager] fileExistsAtPath:xFolder]){
         if([[NSFileManager defaultManager] createDirectoryAtPath:xFolder withIntermediateDirectories:NO attributes:nil error:&error]){
-            NSLog(@"Success writing xFolder\nxFolder = %@", xFolder);
+            //NSLog(@"Success writing xFolder\nxFolder = %@", xFolder);
         }else{
-            NSLog(@"Problem writing xFolder");
+            //NSLog(@"Problem writing xFolder");
         }
     }else{
-        NSLog(@"xFolder Exists");
+        //NSLog(@"xFolder Exists");
     }
     if(![[NSFileManager defaultManager] fileExistsAtPath:yFolder]){
         if([[NSFileManager defaultManager] createDirectoryAtPath:yFolder withIntermediateDirectories:NO attributes:nil error:&error]){
-            NSLog(@"Success writing yFolder\nyFolder = %@", yFolder);
+            //NSLog(@"Success writing yFolder\nyFolder = %@", yFolder);
         }else{
-            NSLog(@"Problem writing yFolder");
+            //NSLog(@"Problem writing yFolder");
         }
     }else{
-        NSLog(@"yFolder Exists");
+        //NSLog(@"yFolder Exists");
     }
     if(![[NSFileManager defaultManager] fileExistsAtPath:zFile]){
         if([[NSFileManager defaultManager] createFileAtPath:zFile contents:data attributes:nil]){
-            NSLog(@"Write file\nFile = %@", zFile);
+            //NSLog(@"Write file\nFile = %@", zFile);
         }else{
-            NSLog(@"Problem writing file");
+            //NSLog(@"Problem writing file");
         }
     }else{
-        NSLog(@"File Exists");
+        //NSLog(@"File Exists");
     }
-    
 }
 
 -(void)redrawWithAlpha:(float)alpha{

@@ -26,6 +26,8 @@
     NSSet *tilePaths;
 }
 @property (nonatomic, strong) NSMutableArray    *tiles;
+@property int   numberOfVisibleTiles;
+@property (nonatomic, strong) NSString          *tileName;
 
 -(id)initWithTilePath:(NSString*)tileAddress;
 

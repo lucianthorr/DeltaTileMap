@@ -47,7 +47,6 @@
         if(overlay != nil){
             [map addOverlay:overlay];
         }
-        
     }else{
         for(int i = 0; i< [self.selectedPlates count]; i++){
             TileOverlay *overlay = [[TileOverlay alloc] initWithTilePath:[self.selectedPlates objectAtIndex:i]];
@@ -67,6 +66,11 @@
         visibleRect.size.height /= 2;
         visibleRect.origin.x += visibleRect.size.width / 2;
         visibleRect.origin.y += visibleRect.size.height / 2;
+        //center the map taking the bottom bar's height into consideration if visible.
+        if(!self.bottomLabel.hidden){
+            NSLog(@"Visible Origin X = %f, Y = %f", visibleRect.origin.x, visibleRect.origin.y);
+            visibleRect.origin.y += 100000.0;
+        }
         map.visibleMapRect = visibleRect;
     }
     //Set General View Settings
@@ -79,38 +83,55 @@
 -(void)orientationChanged:(NSNotification*)notification{
     
     if([[UIDevice currentDevice] orientation] == UIDeviceOrientationPortrait){
-        self.backgroundLabel.hidden = NO;
+        self.bottomLabel.hidden = NO;
+        self.topLabel.hidden = NO;
+        self.headlineLabel.hidden = NO;
         self.mapStyleControl.hidden = NO;
         self.mapSelectButton.hidden = NO;
+
     }else if(([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeLeft) ||
              ([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight)){
-        self.backgroundLabel.hidden = YES;
+        self.bottomLabel.hidden = YES;
+        self.topLabel.hidden = YES;
+        self.headlineLabel.hidden = YES;
         self.mapStyleControl.hidden = YES;
         self.mapSelectButton.hidden = YES;
     }
 }
 
+#pragma mark - MKMapView Delegate
 //This is only called once each time the mapView is loaded.
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay {
     self.tileRenderer = [[TileOverlayRenderer alloc] initWithTileOverlay:overlay];
-    self.tileRenderer.viewController = self;
+    self.tileRenderer.viewController = self; 
     return self.tileRenderer;
 }
-
-#pragma mark - UISlider
-
--(void)sliderWillBeChanged:(UISlider*)sender{
-    for(int i = 0; i<[[map overlays] count]; i++){
-        TileOverlay *overlay = [[map overlays] objectAtIndex:i];
-        TileOverlayRenderer *renderer = (TileOverlayRenderer*)[map rendererForOverlay:overlay];
-        if([renderer.spinner isAnimating]){
-            
-        }else{
-            
+-(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
+    NSLog(@"Region Did Change");
+    CGPoint viewCenter = [self.view center];
+    NSLog(@"View Center: x = %f, y = %f", viewCenter.x, viewCenter.y);
+    NSArray *overlays = [mapView overlays];
+    float shortestDistance = 9999999.0;
+    int closestTile = 0;
+    for(int i = 0; i<[overlays count]; i++){
+        TileOverlay *overlay = [overlays objectAtIndex:i];
+        MKCoordinateRegion cr = MKCoordinateRegionForMapRect([overlay boundingMapRect]);
+        CGRect tileRect = [mapView convertRegion:cr toRectToView:self.map];
+        float tileCenterX = tileRect.origin.x + (tileRect.size.width/2.0);
+        float tileCenterY = tileRect.origin.y + (tileRect.size.height/2.0);
+        CGFloat distance = hypot(viewCenter.x - tileCenterX, viewCenter.y - tileCenterY);
+        NSLog(@"Distance from Tile %i = %f", i+1, distance);
+        if(distance < shortestDistance){
+            shortestDistance = distance;
+            closestTile = i;
         }
     }
+    self.headlineLabel.text = [NSString stringWithFormat:@"%@",[[overlays objectAtIndex:closestTile] tileName]];
 }
--(void)sliderChanged:(UISlider*)sender{
+#pragma mark - UISlider
+
+
+-(IBAction)sliderChanged:(UISlider*)sender{
     for(int i = 0; i< [[map overlays] count]; i++){
         //[tileViews count] earlier
         TileOverlay *overlay = [[map overlays] objectAtIndex:i];
@@ -118,8 +139,8 @@
         [renderer redrawWithAlpha:sender.value];
         [renderer setNeedsDisplay];
     }
-    [self.backgroundLabel setAlpha:sender.value];
-    [self.backgroundLabel setNeedsDisplay];
+    //[self.bottomLabel setAlpha:sender.value];
+    //[self.bottomLabel setNeedsDisplay];
 }
 
 #pragma mark - UISegmentedController

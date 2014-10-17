@@ -19,6 +19,7 @@
     if(self = [super init]){
         imagePath = p;
         frame = f;
+
     }
     return self;
 }
@@ -38,11 +39,12 @@ static NSInteger zoomScaleToZoomLevel(MKZoomScale scale) {
     if(self = [super init]){
         tileBase = [[NSString alloc] initWithString:tileAddress];
         MapAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        self.tileName = [tileAddress stringByReplacingOccurrencesOfString:@"." withString:@", Set "];
         NSArray *tileSet = [appDelegate.jSONDictionary objectForKey:tileAddress];
         NSString *path = nil;
         NSMutableSet *pathSet = [[NSMutableSet alloc] init];
         NSInteger minZ = INT_MAX;
-        
+        self.numberOfVisibleTiles = 0;
         for(int i = 0; i<[tileSet count]; i++) {
             path = [NSString stringWithFormat:@"%@",[[tileSet objectAtIndex:i] substringFromIndex:1]];
             if (NSOrderedSame == [[path pathExtension] caseInsensitiveCompare:@"png"]) {
@@ -151,6 +153,7 @@ static NSInteger zoomScaleToZoomLevel(MKZoomScale scale) {
             }
         }
     }
+    self.numberOfVisibleTiles = [tiles count];
     return tiles;
 }
 
