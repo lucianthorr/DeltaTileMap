@@ -91,9 +91,9 @@ static NSInteger zoomScaleToZoomLevel(MKZoomScale scale) {
         // is at the bottom. MKMapPoint convention is that the 0th point
         // is in the upper left.  So need to flip y to correctly address
         // the tile path.
-        NSInteger flippedMinY = abs(minY + 1 - tilesAtZ);
-        NSInteger flippedMaxY = abs(maxY + 1 - tilesAtZ);
-        
+        NSInteger flippedMinY = ABS(minY + 1 - tilesAtZ);
+        NSInteger flippedMaxY = ABS(maxY + 1 - tilesAtZ);
+
         double x0 = (minX * TILE_SIZE) / zoomScaleAtMinZ;
         double x1 = ((maxX+1) * TILE_SIZE) / zoomScaleAtMinZ;
         double y0 = (flippedMaxY * TILE_SIZE) / zoomScaleAtMinZ;
@@ -134,9 +134,9 @@ static NSInteger zoomScaleToZoomLevel(MKZoomScale scale) {
         for (NSInteger x = minX; x <= maxX; x++){
             for(NSInteger y = minY; y <= maxY; y++){
                 //As in initWithTilePath, need to flip y index to match gdal2tiles.py convention
-                NSInteger flippedY = abs(y + 1 - tilesAtZ);
+                NSInteger flippedY = ABS(y + 1 - tilesAtZ);
                 
-                NSString *tileKey = [[NSString alloc] initWithFormat:@"%d/%d/%d", z, x, flippedY];
+                NSString *tileKey = [[NSString alloc] initWithFormat:@"%ld/%ld/%ld", (long)z, (long)x, (long)flippedY];
                 
                 if([tilePaths containsObject:tileKey]){
                     if(!tiles){
@@ -153,7 +153,7 @@ static NSInteger zoomScaleToZoomLevel(MKZoomScale scale) {
             }
         }
     }
-    self.numberOfVisibleTiles = [tiles count];
+    self.numberOfVisibleTiles = (int)[tiles count];
     return tiles;
 }
 

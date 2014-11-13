@@ -33,17 +33,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Back Button
+#pragma mark - UIButtons
 
 -(IBAction)backPressed:(id)sender{
     MapAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
     NSMutableArray *selections = [[NSMutableArray alloc] init];
     for(int i = 0; i< [selectedRows count]; i++){
-        [selections addObject:[self.tableView cellForRowAtIndexPath:[selectedRows objectAtIndex:i]].textLabel.text];
+        //[selections addObject:[self.tableView cellForRowAtIndexPath:[selectedRows objectAtIndex:i]].textLabel.text];
+        NSIndexPath *path = [selectedRows objectAtIndex:i];
+        [selections addObject:[self.jSONDirectory objectAtIndex:path.row]];
     }
     [appDelegate setSelectedDirectories:selections];
 }
+-(void)emptyCache:(id)sender{
+    NSArray *downloadedTiles = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] error:NULL];
+    for(int i = 0; i < [downloadedTiles count]; i++){
+        //delete Tiles!
+    }
+}
+
 #pragma mark - UITableview
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -54,7 +63,7 @@
     if(cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",[self.jSONDirectory objectAtIndex:indexPath.row]];
+    cell.textLabel.text = [[self.jSONDirectory objectAtIndex:indexPath.row] stringByReplacingOccurrencesOfString:@"." withString:@", Sheet "];
     return cell;
 }
 //Creates a Maximum of 4 maps allowed to be selected at once.

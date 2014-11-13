@@ -68,7 +68,7 @@
         visibleRect.origin.y += visibleRect.size.height / 2;
         //center the map taking the bottom bar's height into consideration if visible.
         if(!self.bottomLabel.hidden){
-            NSLog(@"Visible Origin X = %f, Y = %f", visibleRect.origin.x, visibleRect.origin.y);
+            //NSLog(@"Visible Origin X = %f, Y = %f", visibleRect.origin.x, visibleRect.origin.y);
             visibleRect.origin.y += 100000.0;
         }
         map.visibleMapRect = visibleRect;
@@ -107,9 +107,9 @@
     return self.tileRenderer;
 }
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
-    NSLog(@"Region Did Change");
+    //NSLog(@"Region Did Change");
     CGPoint viewCenter = [self.view center];
-    NSLog(@"View Center: x = %f, y = %f", viewCenter.x, viewCenter.y);
+    //NSLog(@"View Center: x = %f, y = %f", viewCenter.x, viewCenter.y);
     NSArray *overlays = [mapView overlays];
     float shortestDistance = 9999999.0;
     int closestTile = 0;
@@ -120,7 +120,7 @@
         float tileCenterX = tileRect.origin.x + (tileRect.size.width/2.0);
         float tileCenterY = tileRect.origin.y + (tileRect.size.height/2.0);
         CGFloat distance = hypot(viewCenter.x - tileCenterX, viewCenter.y - tileCenterY);
-        NSLog(@"Distance from Tile %i = %f", i+1, distance);
+        //NSLog(@"Distance from Tile %i = %f", i+1, distance);
         if(distance < shortestDistance){
             shortestDistance = distance;
             closestTile = i;

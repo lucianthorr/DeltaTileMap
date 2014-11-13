@@ -16,7 +16,9 @@
 
 @property (nonatomic, strong)   NSArray                 *jSONDirectory;
 @property (nonatomic, strong)   IBOutlet UITableView    *tableView;
+@property (nonatomic, strong)   IBOutlet UIButton       *emptyCacheButton;
 
 -(IBAction)backPressed:(id)sender;
+-(IBAction)emptyCache:(id)sender;
 
 @end
