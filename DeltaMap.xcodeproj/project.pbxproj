@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B11CDCC1A153E7400983E82 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1B11CDCB1A153E7400983E82 /* README.md */; };
 		1B6B3FD819C7395200EDAB5D /* MapSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */; };
 		1B6B40BE19CB4B8100EDAB5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6B40BD19CB4B8100EDAB5D /* libz.dylib */; };
 		1B80FBDB19DC64E6009AF36C /* Delta Icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B80FBD619DC64E6009AF36C /* Delta Icon76.png */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B11CDCB1A153E7400983E82 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1B6B3FD619C7395200EDAB5D /* MapSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectViewController.h; sourceTree = "<group>"; };
 		1B6B3FD719C7395200EDAB5D /* MapSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSelectViewController.m; sourceTree = "<group>"; };
 		1B6B40BD19CB4B8100EDAB5D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -134,6 +136,7 @@
 		1B94EB3419C3849900BA8489 = {
 			isa = PBXGroup;
 			children = (
+				1B11CDCB1A153E7400983E82 /* README.md */,
 				1B94EB4619C3849A00BA8489 /* DeltaMap */,
 				1B94EB6519C3849A00BA8489 /* DeltaMapTests */,
 				1B94EB3F19C3849A00BA8489 /* Frameworks */,
@@ -327,6 +330,7 @@
 				1B94EB7E19C386A100BA8489 /* TileOverlay.m in Sources */,
 				1B6B3FD819C7395200EDAB5D /* MapSelectViewController.m in Sources */,
 				1B94EB8119C386DA00BA8489 /* TileOverlayRenderer.m in Sources */,
+				1B11CDCC1A153E7400983E82 /* README.md in Sources */,
 				1B94EB7719C384FB00BA8489 /* TileMapViewController.m in Sources */,
 				1B94EB4D19C3849A00BA8489 /* main.m in Sources */,
 				1B94EB5119C3849A00BA8489 /* MapAppDelegate.m in Sources */,

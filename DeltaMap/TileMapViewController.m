@@ -67,7 +67,7 @@
         visibleRect.origin.x += visibleRect.size.width / 2;
         visibleRect.origin.y += visibleRect.size.height / 2;
         //center the map taking the bottom bar's height into consideration if visible.
-        if(!self.bottomLabel.hidden){
+        if(!self.topLabel.hidden){
             //NSLog(@"Visible Origin X = %f, Y = %f", visibleRect.origin.x, visibleRect.origin.y);
             visibleRect.origin.y += 100000.0;
         }
@@ -83,19 +83,32 @@
 -(void)orientationChanged:(NSNotification*)notification{
     
     if([[UIDevice currentDevice] orientation] == UIDeviceOrientationPortrait){
-        self.bottomLabel.hidden = NO;
+        //self.bottomLabel.hidden = NO;
         self.topLabel.hidden = NO;
         self.headlineLabel.hidden = NO;
         self.mapStyleControl.hidden = NO;
         self.mapSelectButton.hidden = NO;
-
+        if(self.mapConstraint){
+            [self.map removeConstraint:self.mapConstraint];
+        }
+        [self.view setNeedsDisplay];
+        
     }else if(([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeLeft) ||
              ([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight)){
-        self.bottomLabel.hidden = YES;
+        //self.bottomLabel.hidden = YES;
         self.topLabel.hidden = YES;
         self.headlineLabel.hidden = YES;
         self.mapStyleControl.hidden = YES;
         self.mapSelectButton.hidden = YES;
+        
+        CGFloat height = self.view.frame.size.height;
+        NSDictionary *viewsDictionary = @{@"map":self.map};
+        NSString *constraintString = [NSString stringWithFormat:@"V:[map(%f)]", height];
+        NSArray *constraint = [NSLayoutConstraint constraintsWithVisualFormat:constraintString options:0 metrics:nil views: viewsDictionary];
+        [self.map removeConstraint:self.mapConstraint];
+        self.mapConstraint = constraint[0];
+        [self.map addConstraint:self.mapConstraint];
+        [self.view setNeedsDisplay];
     }
 }
 
@@ -107,7 +120,6 @@
     return self.tileRenderer;
 }
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
-    //NSLog(@"Region Did Change");
     CGPoint viewCenter = [self.view center];
     //NSLog(@"View Center: x = %f, y = %f", viewCenter.x, viewCenter.y);
     NSArray *overlays = [mapView overlays];
@@ -120,7 +132,6 @@
         float tileCenterX = tileRect.origin.x + (tileRect.size.width/2.0);
         float tileCenterY = tileRect.origin.y + (tileRect.size.height/2.0);
         CGFloat distance = hypot(viewCenter.x - tileCenterX, viewCenter.y - tileCenterY);
-        //NSLog(@"Distance from Tile %i = %f", i+1, distance);
         if(distance < shortestDistance){
             shortestDistance = distance;
             closestTile = i;
@@ -139,8 +150,6 @@
         [renderer redrawWithAlpha:sender.value];
         [renderer setNeedsDisplay];
     }
-    //[self.bottomLabel setAlpha:sender.value];
-    //[self.bottomLabel setNeedsDisplay];
 }
 
 #pragma mark - UISegmentedController

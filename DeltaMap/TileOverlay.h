@@ -25,7 +25,7 @@
     MKMapRect boundingMapRect;
     NSSet *tilePaths;
 }
-@property (nonatomic, strong) NSMutableArray    *tiles;
+//@property (nonatomic, strong) NSMutableArray    *tiles;
 @property int   numberOfVisibleTiles;
 @property (nonatomic, strong) NSString          *tileName;
 

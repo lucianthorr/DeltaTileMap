@@ -52,10 +52,6 @@
     NSData *webData = [NSData dataWithContentsOfURL:url];
     if(webData != nil){
         self.jSONDictionary = [NSJSONSerialization JSONObjectWithData:webData options:NSJSONReadingMutableLeaves error:&error];
-        NSLog(@"Web Count = %lu", (unsigned long)[[self.jSONDictionary allKeys] count]);
-        for(int i = 0; i< [[self.jSONDictionary allKeys] count]; i++){
-            NSLog(@"%i = %@", i, [[self.jSONDictionary allKeys] objectAtIndex:i]);
-        }
     }else{
         self.jSONDictionary = [[NSDictionary alloc] init];
     }

@@ -19,12 +19,16 @@
 @property (nonatomic, strong) TileOverlayRenderer *tileRenderer;
 @property (nonatomic, strong) NSArray           *selectedPlates;
 
+
+@property (nonatomic, strong) NSLayoutConstraint *mapConstraint;
+
 @property IBOutlet UIButton             *mapSelectButton;
 @property IBOutlet UISegmentedControl   *mapStyleControl;
 @property IBOutlet UISlider             *opacitySlider;
 @property IBOutlet UILabel              *topLabel;
-@property IBOutlet UILabel              *bottomLabel;
 @property IBOutlet UILabel              *headlineLabel;
+
+
 
 
 -(IBAction)sliderChanged:(id)sender;

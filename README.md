@@ -48,9 +48,6 @@ TileOverlay
 
 TileOverlayView
     - MKOverlayView subclass to display a raster tiled map overlay.
-    
-plate22_1 directory
-    - Hierarchical raster map tile directory structure output by running
-    gdal2tiles.py
+
 
 ===========================================================================

@@ -47,9 +47,13 @@
     [appDelegate setSelectedDirectories:selections];
 }
 -(void)emptyCache:(id)sender{
-    NSArray *downloadedTiles = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] error:NULL];
+    NSError *error;
+    NSArray *downloadedTiles = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] error:&error];
+    NSString *documentDirectory =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                        NSUserDomainMask, YES) objectAtIndex:0];
     for(int i = 0; i < [downloadedTiles count]; i++){
-        //delete Tiles!
+        NSString *tilePath = [NSString stringWithFormat:@"%@/%@",documentDirectory,[downloadedTiles objectAtIndex:i]];
+        [[NSFileManager defaultManager] removeItemAtPath:tilePath error:&error];
     }
 }
 

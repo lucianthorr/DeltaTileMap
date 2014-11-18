@@ -33,7 +33,6 @@ static NSInteger zoomScaleToZoomLevel(MKZoomScale scale) {
 
 #pragma mark - TileOverlay
 @implementation TileOverlay
-@synthesize tiles;
 
 -(id)initWithTilePath:(NSString*)tileAddress{
     if(self = [super init]){
@@ -123,36 +122,35 @@ static NSInteger zoomScaleToZoomLevel(MKZoomScale scale) {
     
     //Number of tiles wide or high (but not wide*high)
     NSInteger tilesAtZ = pow(2,z);
-    @synchronized(self){
-        NSInteger minX = floor((MKMapRectGetMinX(rect) * scale) / TILE_SIZE);
-        NSInteger maxX = floor((MKMapRectGetMaxX(rect) * scale) / TILE_SIZE);
-        NSInteger minY = floor((MKMapRectGetMinY(rect) * scale) / TILE_SIZE);
-        NSInteger maxY = floor((MKMapRectGetMaxY(rect) * scale) / TILE_SIZE);
-        
-        tiles = [[NSMutableArray alloc] init];;
-        
-        for (NSInteger x = minX; x <= maxX; x++){
-            for(NSInteger y = minY; y <= maxY; y++){
-                //As in initWithTilePath, need to flip y index to match gdal2tiles.py convention
-                NSInteger flippedY = ABS(y + 1 - tilesAtZ);
-                
-                NSString *tileKey = [[NSString alloc] initWithFormat:@"%ld/%ld/%ld", (long)z, (long)x, (long)flippedY];
-                
-                if([tilePaths containsObject:tileKey]){
-                    if(!tiles){
-                        tiles = [NSMutableArray array];
-                    }
-                    MKMapRect frame = MKMapRectMake((double)(x * TILE_SIZE) / scale,
-                                                    (double)(y * TILE_SIZE) / scale,
-                                                    TILE_SIZE / scale,
-                                                    TILE_SIZE / scale);
-                    NSString *path = [[NSString alloc] initWithFormat:@"%@/%@.png", tileBase, tileKey];
-                    ImageTile *tile = [[ImageTile alloc] initWithFrame:frame path:path];
-                    [tiles addObject:tile];
+    NSInteger minX = floor((MKMapRectGetMinX(rect) * scale) / TILE_SIZE);
+    NSInteger maxX = floor((MKMapRectGetMaxX(rect) * scale) / TILE_SIZE);
+    NSInteger minY = floor((MKMapRectGetMinY(rect) * scale) / TILE_SIZE);
+    NSInteger maxY = floor((MKMapRectGetMaxY(rect) * scale) / TILE_SIZE);
+    
+    NSMutableArray *tiles = [[NSMutableArray alloc] init];;
+    
+    for (NSInteger x = minX; x <= maxX; x++){
+        for(NSInteger y = minY; y <= maxY; y++){
+            //As in initWithTilePath, need to flip y index to match gdal2tiles.py convention
+            NSInteger flippedY = ABS(y + 1 - tilesAtZ);
+            
+            NSString *tileKey = [[NSString alloc] initWithFormat:@"%ld/%ld/%ld", (long)z, (long)x, (long)flippedY];
+            
+            if([tilePaths containsObject:tileKey]){
+                if(!tiles){
+                    tiles = [NSMutableArray array];
                 }
+                MKMapRect frame = MKMapRectMake((double)(x * TILE_SIZE) / scale,
+                                                (double)(y * TILE_SIZE) / scale,
+                                                TILE_SIZE / scale,
+                                                TILE_SIZE / scale);
+                NSString *path = [[NSString alloc] initWithFormat:@"%@/%@.png", tileBase, tileKey];
+                ImageTile *tile = [[ImageTile alloc] initWithFrame:frame path:path];
+                [tiles addObject:tile];
             }
         }
     }
+
     self.numberOfVisibleTiles = (int)[tiles count];
     return tiles;
 }
