@@ -32,8 +32,14 @@
 		1B94EB8119C386DA00BA8489 /* TileOverlayRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94EB8019C386DA00BA8489 /* TileOverlayRenderer.m */; };
 		1BA5A21819ED9E4100904065 /* Delta Icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5A21619ED9E4100904065 /* Delta Icon58.png */; };
 		1BA5A21919ED9E4100904065 /* Delta Icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5A21719ED9E4100904065 /* Delta Icon80.png */; };
-		1BA5A21D19EDA0D600904065 /* launch1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5A21A19EDA0D600904065 /* launch1136.png */; };
-		1BA5A21E19EDA0D600904065 /* launch960.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5A21B19EDA0D600904065 /* launch960.png */; };
+		1BE7E0781A1D43690018559B /* Delta Icon50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE7E0771A1D43690018559B /* Delta Icon50.png */; };
+		1BE7E07A1A1D43A40018559B /* Delta Icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE7E0791A1D43A40018559B /* Delta Icon72.png */; };
+		1BE7E08B1A1E48430018559B /* launch640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE7E0891A1E48430018559B /* launch640x960.png */; };
+		1BE7E08C1A1E48430018559B /* launch640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE7E08A1A1E48430018559B /* launch640x1136.png */; };
+		1BE7E08F1A1E48800018559B /* launch768x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE7E08D1A1E48800018559B /* launch768x1024.png */; };
+		1BE7E0901A1E48800018559B /* launch1536x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE7E08E1A1E48800018559B /* launch1536x2048.png */; };
+		1BE7E0921A1E4B550018559B /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BE7E0911A1E4B550018559B /* Launch Screen.xib */; };
+		1BE7E0961A1E4C610018559B /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE7E0951A1E4C610018559B /* launch.png */; };
 		1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5219C3849A00BA8489 /* Main.storyboard */; };
 		1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB5819C3849A00BA8489 /* Images.xcassets */; };
 		1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B94EB4919C3849A00BA8489 /* InfoPlist.strings */; };
@@ -59,21 +65,21 @@
 		1B80FBD819DC64E6009AF36C /* Delta Icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon152.png"; path = "Delta Icons/Delta Icon152.png"; sourceTree = "<group>"; };
 		1B80FBD919DC64E6009AF36C /* Delta Icon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon180.png"; path = "Delta Icons/Delta Icon180.png"; sourceTree = "<group>"; };
 		1B80FBDA19DC64E6009AF36C /* Delta Icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon1024.png"; path = "Delta Icons/Delta Icon1024.png"; sourceTree = "<group>"; };
-		1B94EB3D19C3849A00BA8489 /* DeltaMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltaMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B94EB3D19C3849A00BA8489 /* FiskMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiskMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B94EB4019C3849A00BA8489 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B94EB4219C3849A00BA8489 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1B94EB4419C3849A00BA8489 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1B94EB4819C3849A00BA8489 /* DeltaMap-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DeltaMap-Info.plist"; sourceTree = "<group>"; };
+		1B94EB4819C3849A00BA8489 /* FiskMaps-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FiskMaps-Info.plist"; sourceTree = "<group>"; };
 		1B94EB4A19C3849A00BA8489 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B94EB4C19C3849A00BA8489 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1B94EB4E19C3849A00BA8489 /* DeltaMap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeltaMap-Prefix.pch"; sourceTree = "<group>"; };
+		1B94EB4E19C3849A00BA8489 /* FiskMaps-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FiskMaps-Prefix.pch"; sourceTree = "<group>"; };
 		1B94EB4F19C3849A00BA8489 /* MapAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapAppDelegate.h; sourceTree = "<group>"; };
 		1B94EB5019C3849A00BA8489 /* MapAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAppDelegate.m; sourceTree = "<group>"; };
 		1B94EB5319C3849A00BA8489 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B94EB5819C3849A00BA8489 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1B94EB5E19C3849A00BA8489 /* DeltaMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeltaMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B94EB5E19C3849A00BA8489 /* FiskMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiskMapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B94EB5F19C3849A00BA8489 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		1B94EB6719C3849A00BA8489 /* DeltaMapTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DeltaMapTests-Info.plist"; sourceTree = "<group>"; };
+		1B94EB6719C3849A00BA8489 /* FiskMapsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FiskMapsTests-Info.plist"; sourceTree = "<group>"; };
 		1B94EB6919C3849A00BA8489 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B94EB6B19C3849A00BA8489 /* DeltaMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeltaMapTests.m; sourceTree = "<group>"; };
 		1B94EB7519C384FB00BA8489 /* TileMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapViewController.h; sourceTree = "<group>"; };
@@ -86,8 +92,14 @@
 		1B94EB8019C386DA00BA8489 /* TileOverlayRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileOverlayRenderer.m; sourceTree = "<group>"; };
 		1BA5A21619ED9E4100904065 /* Delta Icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon58.png"; path = "Delta Icons/Delta Icon58.png"; sourceTree = "<group>"; };
 		1BA5A21719ED9E4100904065 /* Delta Icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon80.png"; path = "Delta Icons/Delta Icon80.png"; sourceTree = "<group>"; };
-		1BA5A21A19EDA0D600904065 /* launch1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch1136.png; path = "Delta Icons/launch1136.png"; sourceTree = "<group>"; };
-		1BA5A21B19EDA0D600904065 /* launch960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch960.png; path = "Delta Icons/launch960.png"; sourceTree = "<group>"; };
+		1BE7E0771A1D43690018559B /* Delta Icon50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon50.png"; path = "Delta Icons/Delta Icon50.png"; sourceTree = "<group>"; };
+		1BE7E0791A1D43A40018559B /* Delta Icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delta Icon72.png"; path = "Delta Icons/Delta Icon72.png"; sourceTree = "<group>"; };
+		1BE7E0891A1E48430018559B /* launch640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch640x960.png; path = "Delta Icons/launch640x960.png"; sourceTree = "<group>"; };
+		1BE7E08A1A1E48430018559B /* launch640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch640x1136.png; path = "Delta Icons/launch640x1136.png"; sourceTree = "<group>"; };
+		1BE7E08D1A1E48800018559B /* launch768x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch768x1024.png; path = "Delta Icons/launch768x1024.png"; sourceTree = "<group>"; };
+		1BE7E08E1A1E48800018559B /* launch1536x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch1536x2048.png; path = "Delta Icons/launch1536x2048.png"; sourceTree = "<group>"; };
+		1BE7E0911A1E4B550018559B /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		1BE7E0951A1E4C610018559B /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch.png; path = "Delta Icons/launch.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,12 +132,17 @@
 		1B80FBD519DC63AA009AF36C /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				1BA5A21A19EDA0D600904065 /* launch1136.png */,
-				1BA5A21B19EDA0D600904065 /* launch960.png */,
+				1BE7E0951A1E4C610018559B /* launch.png */,
+				1BE7E08D1A1E48800018559B /* launch768x1024.png */,
+				1BE7E08E1A1E48800018559B /* launch1536x2048.png */,
+				1BE7E0891A1E48430018559B /* launch640x960.png */,
+				1BE7E08A1A1E48430018559B /* launch640x1136.png */,
+				1BE7E0771A1D43690018559B /* Delta Icon50.png */,
 				1BA5A21619ED9E4100904065 /* Delta Icon58.png */,
+				1BE7E0791A1D43A40018559B /* Delta Icon72.png */,
+				1B80FBD619DC64E6009AF36C /* Delta Icon76.png */,
 				1BA5A21719ED9E4100904065 /* Delta Icon80.png */,
 				1B80FBD719DC64E6009AF36C /* Delta Icon120.png */,
-				1B80FBD619DC64E6009AF36C /* Delta Icon76.png */,
 				1B80FBD819DC64E6009AF36C /* Delta Icon152.png */,
 				1B80FBD919DC64E6009AF36C /* Delta Icon180.png */,
 				1B80FBDA19DC64E6009AF36C /* Delta Icon1024.png */,
@@ -137,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				1B11CDCB1A153E7400983E82 /* README.md */,
-				1B94EB4619C3849A00BA8489 /* DeltaMap */,
-				1B94EB6519C3849A00BA8489 /* DeltaMapTests */,
+				1B94EB4619C3849A00BA8489 /* FiskMaps */,
+				1B94EB6519C3849A00BA8489 /* FiskMaps */,
 				1B94EB3F19C3849A00BA8489 /* Frameworks */,
 				1B94EB3E19C3849A00BA8489 /* Products */,
 				1B80FBD519DC63AA009AF36C /* Icons */,
@@ -148,8 +165,8 @@
 		1B94EB3E19C3849A00BA8489 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B94EB3D19C3849A00BA8489 /* DeltaMap.app */,
-				1B94EB5E19C3849A00BA8489 /* DeltaMapTests.xctest */,
+				1B94EB3D19C3849A00BA8489 /* FiskMaps.app */,
+				1B94EB5E19C3849A00BA8489 /* FiskMapsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,9 +185,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1B94EB4619C3849A00BA8489 /* DeltaMap */ = {
+		1B94EB4619C3849A00BA8489 /* FiskMaps */ = {
 			isa = PBXGroup;
 			children = (
+				1BE7E0911A1E4B550018559B /* Launch Screen.xib */,
 				1B94EB5219C3849A00BA8489 /* Main.storyboard */,
 				1B94EB4F19C3849A00BA8489 /* MapAppDelegate.h */,
 				1B94EB5019C3849A00BA8489 /* MapAppDelegate.m */,
@@ -185,33 +203,35 @@
 				1B94EB5819C3849A00BA8489 /* Images.xcassets */,
 				1B94EB4719C3849A00BA8489 /* Supporting Files */,
 			);
+			name = FiskMaps;
 			path = DeltaMap;
 			sourceTree = "<group>";
 		};
 		1B94EB4719C3849A00BA8489 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1B94EB4819C3849A00BA8489 /* DeltaMap-Info.plist */,
+				1B94EB4819C3849A00BA8489 /* FiskMaps-Info.plist */,
 				1B94EB4919C3849A00BA8489 /* InfoPlist.strings */,
 				1B94EB4C19C3849A00BA8489 /* main.m */,
-				1B94EB4E19C3849A00BA8489 /* DeltaMap-Prefix.pch */,
+				1B94EB4E19C3849A00BA8489 /* FiskMaps-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1B94EB6519C3849A00BA8489 /* DeltaMapTests */ = {
+		1B94EB6519C3849A00BA8489 /* FiskMaps */ = {
 			isa = PBXGroup;
 			children = (
 				1B94EB6B19C3849A00BA8489 /* DeltaMapTests.m */,
 				1B94EB6619C3849A00BA8489 /* Supporting Files */,
 			);
+			name = FiskMaps;
 			path = DeltaMapTests;
 			sourceTree = "<group>";
 		};
 		1B94EB6619C3849A00BA8489 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1B94EB6719C3849A00BA8489 /* DeltaMapTests-Info.plist */,
+				1B94EB6719C3849A00BA8489 /* FiskMapsTests-Info.plist */,
 				1B94EB6819C3849A00BA8489 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -220,9 +240,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1B94EB3C19C3849A00BA8489 /* DeltaMap */ = {
+		1B94EB3C19C3849A00BA8489 /* FiskMaps */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B94EB6F19C3849A00BA8489 /* Build configuration list for PBXNativeTarget "DeltaMap" */;
+			buildConfigurationList = 1B94EB6F19C3849A00BA8489 /* Build configuration list for PBXNativeTarget "FiskMaps" */;
 			buildPhases = (
 				1B94EB3919C3849A00BA8489 /* Sources */,
 				1B94EB3A19C3849A00BA8489 /* Frameworks */,
@@ -232,14 +252,14 @@
 			);
 			dependencies = (
 			);
-			name = DeltaMap;
+			name = FiskMaps;
 			productName = DeltaMap;
-			productReference = 1B94EB3D19C3849A00BA8489 /* DeltaMap.app */;
+			productReference = 1B94EB3D19C3849A00BA8489 /* FiskMaps.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1B94EB5D19C3849A00BA8489 /* DeltaMapTests */ = {
+		1B94EB5D19C3849A00BA8489 /* FiskMapsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B94EB7219C3849A00BA8489 /* Build configuration list for PBXNativeTarget "DeltaMapTests" */;
+			buildConfigurationList = 1B94EB7219C3849A00BA8489 /* Build configuration list for PBXNativeTarget "FiskMapsTests" */;
 			buildPhases = (
 				1B94EB5A19C3849A00BA8489 /* Sources */,
 				1B94EB5B19C3849A00BA8489 /* Frameworks */,
@@ -250,9 +270,9 @@
 			dependencies = (
 				1B94EB6419C3849A00BA8489 /* PBXTargetDependency */,
 			);
-			name = DeltaMapTests;
+			name = FiskMapsTests;
 			productName = DeltaMapTests;
-			productReference = 1B94EB5E19C3849A00BA8489 /* DeltaMapTests.xctest */;
+			productReference = 1B94EB5E19C3849A00BA8489 /* FiskMapsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -273,7 +293,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1B94EB3819C3849900BA8489 /* Build configuration list for PBXProject "DeltaMap" */;
+			buildConfigurationList = 1B94EB3819C3849900BA8489 /* Build configuration list for PBXProject "FiskMaps" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -286,8 +306,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1B94EB3C19C3849A00BA8489 /* DeltaMap */,
-				1B94EB5D19C3849A00BA8489 /* DeltaMapTests */,
+				1B94EB3C19C3849A00BA8489 /* FiskMaps */,
+				1B94EB5D19C3849A00BA8489 /* FiskMapsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -297,18 +317,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BE7E08F1A1E48800018559B /* launch768x1024.png in Resources */,
 				1BFFA9D919C3A32D00ABE5D5 /* Main.storyboard in Resources */,
-				1BA5A21D19EDA0D600904065 /* launch1136.png in Resources */,
-				1BA5A21E19EDA0D600904065 /* launch960.png in Resources */,
 				1B80FBDE19DC64E6009AF36C /* Delta Icon180.png in Resources */,
 				1BA5A21819ED9E4100904065 /* Delta Icon58.png in Resources */,
 				1B80FBDC19DC64E6009AF36C /* Delta Icon120.png in Resources */,
 				1BFFA9DA19C3A32D00ABE5D5 /* Images.xcassets in Resources */,
+				1BE7E0901A1E48800018559B /* launch1536x2048.png in Resources */,
+				1BE7E08B1A1E48430018559B /* launch640x960.png in Resources */,
 				1B80FBDD19DC64E6009AF36C /* Delta Icon152.png in Resources */,
+				1BE7E0921A1E4B550018559B /* Launch Screen.xib in Resources */,
+				1BE7E08C1A1E48430018559B /* launch640x1136.png in Resources */,
 				1BA5A21919ED9E4100904065 /* Delta Icon80.png in Resources */,
+				1BE7E0961A1E4C610018559B /* launch.png in Resources */,
+				1BE7E0781A1D43690018559B /* Delta Icon50.png in Resources */,
 				1BFFA9DB19C3A32D00ABE5D5 /* InfoPlist.strings in Resources */,
 				1B80FBDB19DC64E6009AF36C /* Delta Icon76.png in Resources */,
 				1B80FBDF19DC64E6009AF36C /* Delta Icon1024.png in Resources */,
+				1BE7E07A1A1D43A40018559B /* Delta Icon72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +376,7 @@
 /* Begin PBXTargetDependency section */
 		1B94EB6419C3849A00BA8489 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1B94EB3C19C3849A00BA8489 /* DeltaMap */;
+			target = 1B94EB3C19C3849A00BA8489 /* FiskMaps */;
 			targetProxy = 1B94EB6319C3849A00BA8489 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -458,13 +484,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wrong Question, LLC (QJ2S27M73N)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DeltaMap/DeltaMap-Prefix.pch";
-				INFOPLIST_FILE = "DeltaMap/DeltaMap-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				GCC_PREFIX_HEADER = "DeltaMap/FiskMaps-Prefix.pch";
+				INFOPLIST_FILE = "DeltaMap/FiskMaps-Info.plist";
+				PRODUCT_NAME = FiskMaps;
+				PROVISIONING_PROFILE = "a7208481-6763-4765-bb41-ff7df89ddf51";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -475,13 +501,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wrong Question, LLC (QJ2S27M73N)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DeltaMap/DeltaMap-Prefix.pch";
-				INFOPLIST_FILE = "DeltaMap/DeltaMap-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				GCC_PREFIX_HEADER = "DeltaMap/FiskMaps-Prefix.pch";
+				INFOPLIST_FILE = "DeltaMap/FiskMaps-Info.plist";
+				PRODUCT_NAME = FiskMaps;
+				PROVISIONING_PROFILE = "a7208481-6763-4765-bb41-ff7df89ddf51";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -502,8 +528,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "DeltaMapTests/DeltaMapTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DeltaMapTests/FiskMapsTests-Info.plist";
+				PRODUCT_NAME = FiskMapsTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -520,8 +546,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DeltaMap/DeltaMap-Prefix.pch";
-				INFOPLIST_FILE = "DeltaMapTests/DeltaMapTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DeltaMapTests/FiskMapsTests-Info.plist";
+				PRODUCT_NAME = FiskMapsTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -530,7 +556,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B94EB3819C3849900BA8489 /* Build configuration list for PBXProject "DeltaMap" */ = {
+		1B94EB3819C3849900BA8489 /* Build configuration list for PBXProject "FiskMaps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B94EB6D19C3849A00BA8489 /* Debug */,
@@ -539,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B94EB6F19C3849A00BA8489 /* Build configuration list for PBXNativeTarget "DeltaMap" */ = {
+		1B94EB6F19C3849A00BA8489 /* Build configuration list for PBXNativeTarget "FiskMaps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B94EB7019C3849A00BA8489 /* Debug */,
@@ -548,7 +574,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B94EB7219C3849A00BA8489 /* Build configuration list for PBXNativeTarget "DeltaMapTests" */ = {
+		1B94EB7219C3849A00BA8489 /* Build configuration list for PBXNativeTarget "FiskMapsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B94EB7319C3849A00BA8489 /* Debug */,

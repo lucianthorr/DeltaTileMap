@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1B94EB3C19C3849A00BA8489"
-               BuildableName = "DeltaMap.app"
-               BlueprintName = "DeltaMap"
-               ReferencedContainer = "container:DeltaMap.xcodeproj">
+               BuildableName = "FiskMaps.app"
+               BlueprintName = "FiskMaps"
+               ReferencedContainer = "container:FiskMaps.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1B94EB5D19C3849A00BA8489"
-               BuildableName = "DeltaMapTests.xctest"
-               BlueprintName = "DeltaMapTests"
-               ReferencedContainer = "container:DeltaMap.xcodeproj">
+               BuildableName = "FiskMapsTests.xctest"
+               BlueprintName = "FiskMapsTests"
+               ReferencedContainer = "container:FiskMaps.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B94EB3C19C3849A00BA8489"
-            BuildableName = "DeltaMap.app"
-            BlueprintName = "DeltaMap"
-            ReferencedContainer = "container:DeltaMap.xcodeproj">
+            BuildableName = "FiskMaps.app"
+            BlueprintName = "FiskMaps"
+            ReferencedContainer = "container:FiskMaps.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B94EB3C19C3849A00BA8489"
-            BuildableName = "DeltaMap.app"
-            BlueprintName = "DeltaMap"
-            ReferencedContainer = "container:DeltaMap.xcodeproj">
+            BuildableName = "FiskMaps.app"
+            BlueprintName = "FiskMaps"
+            ReferencedContainer = "container:FiskMaps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B94EB3C19C3849A00BA8489"
-            BuildableName = "DeltaMap.app"
-            BlueprintName = "DeltaMap"
-            ReferencedContainer = "container:DeltaMap.xcodeproj">
+            BuildableName = "FiskMaps.app"
+            BlueprintName = "FiskMaps"
+            ReferencedContainer = "container:FiskMaps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

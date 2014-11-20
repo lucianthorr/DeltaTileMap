@@ -75,8 +75,9 @@
                     NSData *downloadedData = [NSData dataWithContentsOfURL:imageURL];
                     image = [[UIImage alloc] initWithData:downloadedData];
                     /*Mask White to Transparent EXCEPT FOR PLATE 15 IMAGES */
-                    if(![tile.imagePath containsString:@"Plate15"]){
-                        NSLog(@"%@",tile.imagePath);
+                    NSLog(@"Image Path = %@", tile.imagePath);
+
+                    if([tile.imagePath rangeOfString:@"Plate15"].location == NSNotFound){
                         image = [self replaceColor: [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] inImage:image withTolerance:1.0];
                     }
                     [self writeToFile:UIImagePNGRepresentation(image) atPath:tile.imagePath];
